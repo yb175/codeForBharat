@@ -4,7 +4,6 @@ import { auth } from '../firebse'; // ✅ this should be correct path
 const provider = new GoogleAuthProvider();
 
 export default function handleGoogleLogin() {
-  const navigate = useNavigate();
   signInWithPopup(auth, provider)
     .then((result) => {
       const user = result.user;
