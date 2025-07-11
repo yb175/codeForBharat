@@ -1,32 +1,30 @@
 import React, { useState } from 'react';
+import { NavLink, useNavigate } from 'react-router';
 import { useAuth } from '../../context/AuthContext';
 import { useTheme } from '../../context/ThemeContext';
 import './Navigation.css';
 
-const Navigation = ({ activeTab, setActiveTab }) => {
+const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { user, logout } = useAuth();
   const { theme, toggleTheme } = useTheme();
+  const navigate = useNavigate();
 
   const navigationItems = [
-    { id: 'dashboard', label: 'Dashboard', icon: '📊' },
-    { id: 'events', label: 'Events', icon: '🎉' },
-    { id: 'lost-found', label: 'Lost & Found', icon: '🔍' },
-    { id: 'study-materials', label: 'Study Materials', icon: '📚' },
-    { id: 'study-groups', label: 'Study Groups', icon: '👥' },
-    { id: 'leaderboard', label: 'Leaderboard', icon: '🏆' },
-    { id: 'media', label: 'Media Gallery', icon: '📸' },
-    { id: 'reports', label: 'Report Issue', icon: '🚨' }
+    { path: '/dashboard', label: 'Dashboard', icon: '📊' },
+    { path: '/events', label: 'Events', icon: '🎉' },
+    { path: '/lost-found', label: 'Lost & Found', icon: '🔍' },
+    { path: '/study-materials', label: 'Study Materials', icon: '📚' },
+    { path: '/study-groups', label: 'Study Groups', icon: '👥' },
+    { path: '/leaderboard', label: 'Leaderboard', icon: '🏆' },
+    { path: '/media', label: 'Media Gallery', icon: '📸' },
+    { path: '/reports', label: 'Report Issue', icon: '🚨' }
   ];
-
-  const handleTabClick = (tabId) => {
-    setActiveTab(tabId);
-    setIsMobileMenuOpen(false);
-  };
 
   const handleLogout = () => {
     logout();
     setIsMobileMenuOpen(false);
+    navigate('/'); // optional: navigate to homepage or login
   };
 
   return (
@@ -40,14 +38,16 @@ const Navigation = ({ activeTab, setActiveTab }) => {
         <div className="nav-desktop">
           <ul className="nav-links">
             {navigationItems.map(item => (
-              <li key={item.id}>
-                <button
-                  className={`nav-link ${activeTab === item.id ? 'active' : ''}`}
-                  onClick={() => handleTabClick(item.id)}
+              <li key={item.path}>
+                <NavLink
+                  to={item.path}
+                  className={({ isActive }) =>
+                    `nav-link ${isActive ? 'active' : ''}`
+                  }
                 >
                   <span className="nav-icon">{item.icon}</span>
                   <span className="nav-label">{item.label}</span>
-                </button>
+                </NavLink>
               </li>
             ))}
           </ul>
@@ -57,7 +57,7 @@ const Navigation = ({ activeTab, setActiveTab }) => {
           <button className="theme-toggle-btn" onClick={toggleTheme}>
             {theme === 'light' ? '🌙' : '☀️'}
           </button>
-          
+
           <div className="user-info">
             <span className="user-name">{user?.name}</span>
             <div className="user-points">
@@ -65,7 +65,7 @@ const Navigation = ({ activeTab, setActiveTab }) => {
               <span className="points-value">{user?.points || 0}</span>
             </div>
           </div>
-          
+
           <button className="logout-btn" onClick={handleLogout}>
             Logout
           </button>
@@ -90,21 +90,24 @@ const Navigation = ({ activeTab, setActiveTab }) => {
               <span className="points-value">{user?.points || 0}</span>
             </div>
           </div>
-          
+
           <ul className="mobile-nav-links">
             {navigationItems.map(item => (
-              <li key={item.id}>
-                <button
-                  className={`mobile-nav-link ${activeTab === item.id ? 'active' : ''}`}
-                  onClick={() => handleTabClick(item.id)}
+              <li key={item.path}>
+                <NavLink
+                  to={item.path}
+                  className={({ isActive }) =>
+                    `mobile-nav-link ${isActive ? 'active' : ''}`
+                  }
+                  onClick={() => setIsMobileMenuOpen(false)}
                 >
                   <span className="nav-icon">{item.icon}</span>
                   <span className="nav-label">{item.label}</span>
-                </button>
+                </NavLink>
               </li>
             ))}
           </ul>
-          
+
           <div className="mobile-actions">
             <button className="mobile-theme-toggle" onClick={toggleTheme}>
               {theme === 'light' ? '🌙 Dark Mode' : '☀️ Light Mode'}

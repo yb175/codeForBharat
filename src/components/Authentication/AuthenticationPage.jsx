@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { useAuth } from '../../context/AuthContext';
 import { useTheme } from '../../context/ThemeContext';
 import './AuthenticationPage.css';
-
+import handleGoogleLogin from '../../myfunctions/login';
+import {useNavigate} from "react-router";
 const AuthenticationPage = () => {
   const [isLogin, setIsLogin] = useState(true);
   const [formData, setFormData] = useState({
@@ -90,7 +91,6 @@ const AuthenticationPage = () => {
       setLoading(false);
     }
   };
-
   return (
     <div className="auth-page">
       <div className="auth-container">
@@ -116,7 +116,7 @@ const AuthenticationPage = () => {
             >
               Sign Up
             </button>
-          </div>
+        </div>
           
           <form onSubmit={handleSubmit} className="auth-form">
             {errors.general && (
@@ -246,6 +246,16 @@ const AuthenticationPage = () => {
               )}
             </button>
           </form>
+          <div className="google-login">
+              <button className="google-btn" onClick={()=>handleGoogleLogin()}>
+            <img 
+                src="https://developers.google.com/identity/images/g-logo.png" 
+                alt="Google logo" 
+                className="google-icon"
+            />
+              Login with Google
+              </button>
+            </div>
         </div>
       </div>
     </div>

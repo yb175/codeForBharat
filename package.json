@@ -8,8 +8,10 @@
     "dev": "parcel src/index.html --open"
   },
   "dependencies": {
+    "firebase": "^11.10.0",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-router": "^7.6.3"
   },
   "devDependencies": {
     "parcel": "^2.12.0"

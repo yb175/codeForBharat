@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+// MainApplication.jsx
+import React from 'react';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router';
 import { useAuth } from '../../context/AuthContext';
 import AuthenticationPage from '../Authentication/AuthenticationPage';
-import Dashboard from '../Dashboard/Dashboard';
 import Navigation from '../Navigation/Navigation';
+import Dashboard from '../Dashboard/Dashboard';
 import Events from '../Events/Events';
 import LostAndFound from '../LostAndFound/LostAndFound';
 import StudyMaterials from '../StudyMaterials/StudyMaterials';
@@ -14,7 +16,6 @@ import './MainApplication.css';
 
 const MainApplication = () => {
   const { user, loading } = useAuth();
-  const [activeTab, setActiveTab] = useState('dashboard');
 
   if (loading) {
     return (
@@ -25,42 +26,27 @@ const MainApplication = () => {
     );
   }
 
-  if (!user) {
-    return <AuthenticationPage />;
-  }
-
-  const renderActiveComponent = () => {
-    switch (activeTab) {
-      case 'dashboard':
-        return <Dashboard />;
-      case 'events':
-        return <Events />;
-      case 'lost-found':
-        return <LostAndFound />;
-      case 'study-materials':
-        return <StudyMaterials />;
-      case 'study-groups':
-        return <StudyGroups />;
-      case 'leaderboard':
-        return <Leaderboard />;
-      case 'media':
-        return <MediaGallery />;
-      case 'reports':
-        return <ReportingSystem />;
-      default:
-        return <Dashboard />;
-    }
-  };
+  if (!user) return <AuthenticationPage />;
 
   return (
-    <div className="main-application">
-      <Navigation activeTab={activeTab} setActiveTab={setActiveTab} />
+    <BrowserRouter>
+      <Navigation />
       <main className="main-content">
         <div className="container">
-          {renderActiveComponent()}
+          <Routes>
+            <Route path="/" element={<Navigate to="/dashboard" replace />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/events" element={<Events />} />
+            <Route path="/lost-found" element={<LostAndFound />} />
+            <Route path="/study-materials" element={<StudyMaterials />} />
+            <Route path="/study-groups" element={<StudyGroups />} />
+            <Route path="/leaderboard" element={<Leaderboard />} />
+            <Route path="/media" element={<MediaGallery />} />
+            <Route path="/reports" element={<ReportingSystem />} />
+          </Routes>
         </div>
       </main>
-    </div>
+    </BrowserRouter>
   );
 };
 
