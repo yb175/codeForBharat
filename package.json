@@ -2,7 +2,6 @@
   "name": "campus-management-system",
   "version": "1.0.0",
   "description": "All-in-One Digital Ecosystem for College Students and Faculty",
-  "main": "index.js",
   "scripts": {
     "start": "parcel src/index.html",
     "build": "parcel build src/index.html",
