@@ -3,7 +3,7 @@ import { useAuth } from '../../context/AuthContext';
 import { useTheme } from '../../context/ThemeContext';
 import './AuthenticationPage.css';
 import handleGoogleLogin from '../../myfunctions/login';
-import {useNavigate} from "react-router";
+
 const AuthenticationPage = () => {
   const [isLogin, setIsLogin] = useState(true);
   const [formData, setFormData] = useState({
