@@ -58,13 +58,6 @@ const Navigation = () => {
             {theme === 'light' ? '🌙' : '☀️'}
           </button>
 
-          <div className="user-info">
-            <span className="user-name">{user?.name}</span>
-            <div className="user-points">
-              <span className="points-icon">⭐</span>
-              <span className="points-value">{user?.points || 0}</span>
-            </div>
-          </div>
 
           <button className="logout-btn" onClick={handleLogout}>
             Logout
@@ -83,14 +76,6 @@ const Navigation = () => {
 
       {isMobileMenuOpen && (
         <div className="nav-mobile">
-          <div className="mobile-user-info">
-            <span className="mobile-user-name">{user?.name}</span>
-            <div className="mobile-user-points">
-              <span className="points-icon">⭐</span>
-              <span className="points-value">{user?.points || 0}</span>
-            </div>
-          </div>
-
           <ul className="mobile-nav-links">
             {navigationItems.map(item => (
               <li key={item.path}>
