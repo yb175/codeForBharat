@@ -8,6 +8,7 @@ export default function handleGoogleLogin() {
     .then((result) => {
       const user = result.user;
       localStorage.setItem('campusUser', JSON.stringify(user));
+      window.location.href = "/dashboard"; 
     })
     .catch((error) => {
       console.error("Google login failed:", error.message);
