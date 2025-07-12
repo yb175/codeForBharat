@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const AuthContext = createContext();
+export default AuthContext;
 
 export const useAuth = () => {
   const context = useContext(AuthContext);
@@ -13,18 +14,32 @@ export const useAuth = () => {
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [users, setUsers] = useState([]);
 
   useEffect(() => {
     const storedUser = localStorage.getItem('campusUser');
     if (storedUser) {
       setUser(JSON.parse(storedUser));
     }
+    const storedUsers = localStorage.getItem('campusUsers');
+    if (storedUsers) {
+      setUsers(JSON.parse(storedUsers));
+    }
     setLoading(false);
   }, []);
+  const saveUsersToStorage = (updatedUsers) => {
+    setUsers(updatedUsers);
+    localStorage.setItem('campusUsers', JSON.stringify(updatedUsers));
+  };
 
-  const login = (userData) => {
-    setUser(userData);
-    localStorage.setItem('campusUser', JSON.stringify(userData));
+  const login = (email,password) => {
+    const user = users.find(u => u.email === email && u.password === password);
+    if (user) {
+      setUser(user);
+      localStorage.setItem('campusUser', JSON.stringify(user));
+      return true;
+    }
+    return false;
   };
 
   const logout = () => {
@@ -33,16 +48,8 @@ export const AuthProvider = ({ children }) => {
   };
 
   const register = (userData) => {
-    const newUser = {
-      ...userData,
-      id: Date.now().toString(),
-      createdAt: new Date().toISOString(),
-      points: 0,
-      role: 'student'
-    };
-    setUser(newUser);
-    localStorage.setItem('campusUser', JSON.stringify(newUser));
-    return newUser;
+    const updatedUsers = [...users, userData];
+    saveUsersToStorage(updatedUsers);
   };
 
   const updateUser = (updates) => {
@@ -57,7 +64,8 @@ export const AuthProvider = ({ children }) => {
     logout,
     register,
     updateUser,
-    loading
+    loading,
+    users
   };
 
   return (
