@@ -149,21 +149,21 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  background-color: white;
-  color: #555;
-  border: 1px solid #ddd;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  border: 1px solid var(--primary-color);
   padding: 10px 20px;
   border-radius: 8px;
   cursor: pointer;
   font-weight: 500;
   font-size: 14px;
   transition: all 0.2s ease-in-out;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 8px var(--primary-color);
 }
-
 .google-btn:hover {
-  background-color: #f7f7f7;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: var(--bg-secondary);
+  box-shadow: 0 4px 12px var(--secondary-color);
+  color: var(--text-secondary);
 }
 
 .google-icon {
