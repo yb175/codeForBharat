@@ -249,7 +249,7 @@ const AuthenticationPage = () => {
           <div className="google-login">
               <button className="google-btn" onClick={()=>handleGoogleLogin()}>
             <img 
-                src="https://developers.google.com/identity/images/g-logo.png" 
+                src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-icon-png-transparent-background-osteopathy-16.png" 
                 alt="Google logo" 
                 className="google-icon"
             />
