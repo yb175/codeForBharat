@@ -1,3 +1,10 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
 :root {
   --primary-color: #3b82f6;
   --secondary-color: #10b981;
