@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useAuth } from '../../context/AuthContext';
 import { useApp } from '../../context/AppContext';
 import './Dashboard.css';
 
 const Dashboard = () => {
-  const { user } = useAuth();
   const { events, lostItems, studyMaterials, studyGroups, mediaItems, notifications } = useApp();
 
   const recentEvents = events.slice(0, 3);
@@ -13,6 +12,13 @@ const Dashboard = () => {
   const recentGroups = studyGroups.slice(0, 3);
   const recentMedia = mediaItems.slice(0, 3);
   const unreadNotifications = notifications.filter(n => !n.read).slice(0, 5);
+  const [user, setUser] = React.useState(null);
+  useState(()=>{
+    const storedUser = localStorage.getItem('campusUser');
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+  },[user])
 
   const stats = [
     {
@@ -52,11 +58,10 @@ const Dashboard = () => {
       color: 'accent'
     }
   ];
-
   return (
     <div className="dashboard">
       <div className="dashboard-header">
-        <h1 className="dashboard-title">Welcome back, {user?.name}!</h1>
+        <h1 className="dashboard-title">Welcome back {user?.displayName} !</h1>
         <p className="dashboard-subtitle">Here's what's happening on campus today</p>
       </div>
 
