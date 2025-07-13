@@ -9,7 +9,9 @@ const LostItemForm = ({ onSubmit, onCancel }) => {
     location: '',
     dateFound: '',
     status: 'lost',
-    image: ''
+    image: '',
+    reportedBy: '',
+    contact: ''
   });
 
   const [errors, setErrors] = useState({});
@@ -57,6 +59,17 @@ const LostItemForm = ({ onSubmit, onCancel }) => {
         newErrors.dateFound = 'Date cannot be in the future';
       }
     }
+    if(!formData.reportedBy.trim()){
+      newErrors.reportedBy = 'Name is required';
+    }
+    
+    if (!formData.contact.trim()) {
+      newErrors.contact = 'contact is required';
+    }
+    
+    if (!formData.status) {
+      newErrors.status = 'Status is required';
+    }
     
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -67,7 +80,7 @@ const LostItemForm = ({ onSubmit, onCancel }) => {
     if (validateForm()) {
       onSubmit({
         ...formData,
-        image: formData.image || 'https://images.pexels.com/photos/699122/pexels-photo-699122.jpeg'
+        image: formData.image || 'https://images.pexels.com/photos/699122/pexels-photo-699122.jpeg',
       });
     }
   };
@@ -160,7 +173,16 @@ const LostItemForm = ({ onSubmit, onCancel }) => {
             {errors.dateFound && <span className="error-text">{errors.dateFound}</span>}
           </div>
         </div>
-
+        <div className="form-row">
+          <div className="form-group">
+             <label className="form-label">Name</label>
+             <input type='text' name='reportedBy' value={formData.reportedBy} placeholder='Enter your name' className='form-input' onChange={handleInputChange}></input>
+          </div>
+          <div className="form-group">
+             <label className="form-label">Contact</label>
+             <input type='text' name='contact' value={formData.email} placeholder='Enter your contact' className='form-input' onChange={handleInputChange}></input>
+          </div>
+        </div>
         <div className="form-group">
           <label className="form-label">Item Image URL (Optional)</label>
           <input

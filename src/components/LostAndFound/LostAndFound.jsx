@@ -7,7 +7,6 @@ import './LostAndFound.css';
 
 const LostAndFound = () => {
   const { lostItems, addLostItem } = useApp();
-  const { user } = useAuth();
   const [showForm, setShowForm] = useState(false);
   const [filter, setFilter] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
@@ -21,9 +20,7 @@ const LostAndFound = () => {
 
   const handleAddItem = (itemData) => {
     addLostItem({
-      ...itemData,
-      reportedBy: user?.name || 'Anonymous',
-      contact: user?.email || 'No contact provided'
+      ...itemData
     });
     setShowForm(false);
   };
