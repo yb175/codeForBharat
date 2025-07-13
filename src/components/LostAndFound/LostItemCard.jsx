@@ -2,7 +2,10 @@ import React from "react";
 import { useState } from "react";
 import "./LostItemCard.css";
 import ContactReporter from "./contactReporter";
-const LostItemCard = ({ item }) => {
+import { useEffect } from "react";
+import { Link } from "react-router";
+import { Outlet } from "react-router";
+const LostItemCard = ({ item, activeCardId, setActiveCardId }) => {
   const formatDate = (dateString) => {
     return new Date(dateString).toLocaleDateString("en-US", {
       year: "numeric",
@@ -10,7 +13,7 @@ const LostItemCard = ({ item }) => {
       day: "numeric",
     });
   };
-  const [showContact, setShowContact] = useState(false);
+  const isContactVisible = activeCardId === item.id;
   const getStatusColor = (status) => {
     return status === "lost" ? "warning" : "success";
   };
@@ -28,9 +31,7 @@ const LostItemCard = ({ item }) => {
     };
     return icons[category.toLowerCase()] || "❓";
   };
-  function handleContactReporter() {
-    setShowContact(!showContact);
-  }
+
   return (
     <div className="lost-item-card">
       <div className="item-image">
@@ -69,21 +70,13 @@ const LostItemCard = ({ item }) => {
       </div>
 
       <div className="item-actions">
-        <button
-          className="btn btn-primary contact-btn"
-          onClick={() => handleContactReporter()}
-        >
-          Contact Reporter
-        </button>
+        <Link to={`contactReporter/${item.id}`}>
+          <button className="btn btn-primary contact-btn">
+            Contact Reporter
+          </button>
+        </Link>
         <button className="btn btn-outline share-btn">Share</button>
       </div>
-      {showContact && (
-        <ContactReporter
-          name={item.reportedBy}
-          email={item.contact}
-          onClose={() => setShowContact(false)}
-        />
-      )}
     </div>
   );
 };

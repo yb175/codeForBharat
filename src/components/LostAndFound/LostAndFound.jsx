@@ -4,11 +4,13 @@ import { useAuth } from '../../context/AuthContext';
 import LostItemCard from './LostItemCard';
 import LostItemForm from './LostItemForm';
 import './LostAndFound.css';
+import { Outlet } from 'react-router';
 
 const LostAndFound = () => {
   const { lostItems, addLostItem } = useApp();
   const [showForm, setShowForm] = useState(false);
   const [filter, setFilter] = useState('all');
+  const [activeCardId,setActiveCardId] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
 
   const filteredItems = lostItems.filter(item => {
@@ -105,11 +107,11 @@ const LostAndFound = () => {
           </div>
         </div>
       </div>
-
+      <Outlet />
       <div className="lost-found-grid">
         {filteredItems.length > 0 ? (
           filteredItems.map(item => (
-            <LostItemCard key={item.id} item={item} />
+            <LostItemCard key={item.id} item={item} activeCardId={activeCardId} setActiveCardId={setActiveCardId} />
           ))
         ) : (
           <div className="empty-state">
