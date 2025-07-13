@@ -70,7 +70,10 @@ const EventForm = ({ onSubmit, onCancel }) => {
     if (formData.points < 0) {
       newErrors.points = 'Points cannot be negative';
     }
-
+    if(!formData.registrationLink.trim())
+    {
+      newErrors.registrationLink = 'URL is required';
+    }
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -223,6 +226,7 @@ const EventForm = ({ onSubmit, onCancel }) => {
             className="form-input"
             placeholder="https://example.com/register"
           />
+           {errors.registrationLink && <span className="error-text">{errors.registrationLink}</span>}
         </div>
 
         <div className="form-actions">
