@@ -31,7 +31,7 @@ const Navigation = () => {
     <nav className="navigation">
       <div className="nav-container">
         <div className="nav-brand">
-          <h1 className="nav-title">Campus Connect</h1>
+          <h1 className="nav-title">Campus Core</h1>
           <span className="nav-subtitle">Digital Ecosystem</span>
         </div>
 
