@@ -11,7 +11,7 @@ const Navigation = () => {
   const navigate = useNavigate();
 
   const navigationItems = [
-    { path: '/dashboard', label: 'Dashboard', icon: '📊' },
+    { path: '/dashboard' ,label:'Home',icon: '🏠' },
     { path: '/events', label: 'Events', icon: '🎉' },
     { path: '/lost-found', label: 'Lost & Found', icon: '🔍' },
     { path: '/study-materials', label: 'Study Materials', icon: '📚' },
@@ -29,12 +29,21 @@ const Navigation = () => {
 
   return (
     <nav className="navigation">
-      <div className="nav-container">
-        <div className="nav-brand">
-          <h1 className="nav-title">Campus Connect</h1>
-          <span className="nav-subtitle">Digital Ecosystem</span>
+      <div className="nav-container nav-container--vertical">
+        <div className="nav-top-row">
+          <div className="nav-brand">
+            <h1 className="nav-title">Campus Connect</h1>
+            <span className="nav-subtitle">Digital Ecosystem</span>
+          </div>
+          <div className="nav-user">
+            <button className="theme-toggle-btn" onClick={toggleTheme}>
+              {theme === 'light' ? '🌙' : '☀️'}
+            </button>
+            <button className="logout-btn" onClick={handleLogout}>
+              Logout
+            </button>
+          </div>
         </div>
-
         <div className="nav-desktop">
           <ul className="nav-links">
             {navigationItems.map(item => (
@@ -51,17 +60,6 @@ const Navigation = () => {
               </li>
             ))}
           </ul>
-        </div>
-
-        <div className="nav-user">
-          <button className="theme-toggle-btn" onClick={toggleTheme}>
-            {theme === 'light' ? '🌙' : '☀️'}
-          </button>
-
-
-          <button className="logout-btn" onClick={handleLogout}>
-            Logout
-          </button>
         </div>
 
         <button 
