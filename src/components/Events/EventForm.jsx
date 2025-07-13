@@ -11,6 +11,7 @@ const EventForm = ({ onSubmit, onCancel }) => {
     category: 'technology',
     maxParticipants: 100,
     image: '',
+    registrationLink: '',
     points: 30
   });
 
@@ -34,15 +35,15 @@ const EventForm = ({ onSubmit, onCancel }) => {
 
   const validateForm = () => {
     const newErrors = {};
-    
+
     if (!formData.title.trim()) {
       newErrors.title = 'Title is required';
     }
-    
+
     if (!formData.description.trim()) {
       newErrors.description = 'Description is required';
     }
-    
+
     if (!formData.date) {
       newErrors.date = 'Date is required';
     } else {
@@ -53,23 +54,23 @@ const EventForm = ({ onSubmit, onCancel }) => {
         newErrors.date = 'Event date cannot be in the past';
       }
     }
-    
+
     if (!formData.time) {
       newErrors.time = 'Time is required';
     }
-    
+
     if (!formData.location.trim()) {
       newErrors.location = 'Location is required';
     }
-    
+
     if (formData.maxParticipants < 1) {
       newErrors.maxParticipants = 'Maximum participants must be at least 1';
     }
-    
+
     if (formData.points < 0) {
       newErrors.points = 'Points cannot be negative';
     }
-    
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -89,7 +90,7 @@ const EventForm = ({ onSubmit, onCancel }) => {
   return (
     <div className="event-form">
       <h2 className="form-title">Create New Event</h2>
-      
+
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label className="form-label">Event Title *</label>
@@ -209,6 +210,18 @@ const EventForm = ({ onSubmit, onCancel }) => {
             onChange={handleInputChange}
             className="form-input"
             placeholder="https://example.com/image.jpg"
+          />
+        </div>
+
+        <div className="form-group">
+          <label className="form-label">Event Website Link</label>
+          <input
+            type="url"
+            name="registrationLink"
+            value={formData.registrationLink}
+            onChange={handleInputChange}
+            className="form-input"
+            placeholder="https://example.com/register"
           />
         </div>
 

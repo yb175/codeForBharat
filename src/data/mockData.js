@@ -2,7 +2,7 @@ export const mockData = {
   events: [
     {
       id: '1',
-      title: 'Annual Tech Fest 2024',
+      title: 'Annual Tech Fest',
       description: 'Join us for the biggest tech festival of the year with workshops, competitions, and networking.',
       date: '2024-02-15',
       time: '10:00 AM',
@@ -13,7 +13,8 @@ export const mockData = {
       registeredUsers: ['1', '2', '3'],
       image: 'https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg',
       createdAt: '2024-01-15T10:00:00Z',
-      points: 50
+      points: 50,
+      registrationLink: 'https://bits.edu.in/annual-tech-fest/'
     },
     {
       id: '2',
@@ -28,11 +29,12 @@ export const mockData = {
       registeredUsers: ['2', '4'],
       image: 'https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg',
       createdAt: '2024-01-20T09:00:00Z',
-      points: 30
+      points: 30,
+      registrationLink: 'https://www.scmsnoida.ac.in/cultural_evening'
     },
     {
       id: '3',
-      title: 'Career Fair 2024',
+      title: 'Career Fair 2025',
       description: 'Meet top recruiters and explore career opportunities in various industries.',
       date: '2024-02-25',
       time: '9:00 AM',
@@ -43,7 +45,8 @@ export const mockData = {
       registeredUsers: ['1', '3', '5'],
       image: 'https://images.pexels.com/photos/1181354/pexels-photo-1181354.jpeg',
       createdAt: '2024-01-25T11:00:00Z',
-      points: 40
+      points: 40,
+      registrationLink: 'https://rsvp.withgoogle.com/events/cloud-career-fair/home'
     }
   ],
 
