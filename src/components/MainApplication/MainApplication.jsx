@@ -13,6 +13,7 @@ import Leaderboard from "../Leaderboard/Leaderboard";
 import MediaGallery from "../MediaGallery/MediaGallery";
 import ReportingSystem from "../ReportingSystem/ReportingSystem";
 import ContactReporter from "../LostAndFound/contactReporter";
+import SemForm from "../StudyMaterials/semForm";
 import "./MainApplication.css";
 
 const MainApplication = () => {
@@ -42,6 +43,8 @@ const MainApplication = () => {
               <Route path="contactReporter/:id" element={<ContactReporter/>} />
             </Route>
             <Route path="/study-materials" element={<StudyMaterials />} />
+              <Route path="semform" element={<SemForm />}></Route>
+            <Route/>
             <Route path="/study-groups" element={<StudyGroups />} />
             <Route path="/leaderboard" element={<Leaderboard />} />
             <Route path="/media" element={<MediaGallery />} />

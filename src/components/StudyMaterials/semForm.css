@@ -1,0 +1,95 @@
+
+.semform-wrapper {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem 1rem;
+  background: var(--bg-primary);
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow-md);
+  animation: scaleIn 0.4s ease;
+  border: 1px solid var(--border-color);
+}
+
+.semform-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.semester-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2rem;
+}
+
+.semester-item {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  padding: 0.6rem 1rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid var(--border-color);
+}
+
+.semester-item:hover {
+  background: var(--primary-color);
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+.cancel-btn {
+  display: block;
+  margin: 0 auto;
+  padding: 0.75rem 2rem;
+  background: transparent;
+  color: var(--danger-color);
+  border: 2px solid var(--danger-color);
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cancel-btn:hover {
+  background: var(--danger-color);
+  color: white;
+}
+
+/* Animation */
+@keyframes scaleIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.96) translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 480px) {
+  .semester-list {
+    grid-template-columns: 1fr;
+  }
+
+  .semester-item {
+    font-size: 0.9rem;
+    padding: 0.5rem 0.85rem;
+  }
+
+  .semform-wrapper {
+    padding: 1.5rem 1rem;
+  }
+}

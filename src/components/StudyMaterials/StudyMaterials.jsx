@@ -3,7 +3,9 @@ import { useApp } from '../../context/AppContext';
 import { useAuth } from '../../context/AuthContext';
 import MaterialCard from './MaterialCard';
 import MaterialForm from './MaterialForm';
+import { Link,Outlet } from 'react-router';
 import './StudyMaterials.css';
+import SemForm from './semForm';
 
 const StudyMaterials = () => {
   const { studyMaterials, addStudyMaterial } = useApp();
@@ -11,7 +13,8 @@ const StudyMaterials = () => {
   const [showForm, setShowForm] = useState(false);
   const [filter, setFilter] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
-
+  const [selectedSemester, setSelectedSemester] = useState('');
+  const [openSemForm, setOpenSemForm] = useState(false);
   const filteredMaterials = studyMaterials.filter(material => {
     const matchesSearch = material.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          material.subject.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -60,15 +63,21 @@ const StudyMaterials = () => {
             </button>
           ))}
         </div>
-        
+        <div className="add-material-btn-container" style={{ display: 'flex', gap: '10px' }}>
+        <button
+          className="btn btn-primary add-material-btn"
+          onClick={() => setOpenSemForm(true)}
+        >
+          Select Semester
+        </button>
         <button
           className="btn btn-primary add-material-btn"
           onClick={() => setShowForm(true)}
         >
           + Upload Material
         </button>
+        </div>
       </div>
-
       {showForm && (
         <div className="modal-overlay">
           <div className="modal-content">
@@ -79,7 +88,13 @@ const StudyMaterials = () => {
           </div>
         </div>
       )}
-
+      {openSemForm && (
+        <div className="modal-overlay">
+            <SemForm
+              onCancel={() => setOpenSemForm(false)}
+            />
+        </div>
+      )}
       <div className="materials-stats">
         <div className="stat-card">
           <div className="stat-icon">📚</div>
