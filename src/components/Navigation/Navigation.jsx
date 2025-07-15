@@ -16,7 +16,7 @@ const Navigation = () => {
     { path: "/lost-found", label: "Lost & Found", icon: "🔍" },
     { path: "/study-materials", label: "Study Materials", icon: "📚" },
     { path: "/study-groups", label: "Study Groups", icon: "👥" },
-    { path: "/leaderboard", label: "Leaderboard", icon: "🏆" },
+    { path: "/buy-and-sell", label: "Buy & Sell", icon: "💰" },
     { path: "/media", label: "Media Gallery", icon: "📸" },
     { path: "/reports", label: "Report Issue", icon: "🚨" },
   ];

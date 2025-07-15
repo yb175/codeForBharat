@@ -9,7 +9,7 @@ import Events from "../Events/Events";
 import LostAndFound from "../LostAndFound/LostAndFound";
 import StudyMaterials from "../StudyMaterials/StudyMaterials";
 import StudyGroups from "../StudyGroups/StudyGroups";
-import Leaderboard from "../Leaderboard/Leaderboard";
+import BuyAndSell from "../BuyAndSell/BuyAndSell";
 import MediaGallery from "../MediaGallery/MediaGallery";
 import ReportingSystem from "../ReportingSystem/ReportingSystem";
 import ContactReporter from "../LostAndFound/contactReporter";
@@ -46,7 +46,7 @@ const MainApplication = () => {
               <Route path="semform" element={<SemForm />}></Route>
             <Route/>
             <Route path="/study-groups" element={<StudyGroups />} />
-            <Route path="/leaderboard" element={<Leaderboard />} />
+            <Route path="/buy-and-sell" element={<BuyAndSell />} />
             <Route path="/media" element={<MediaGallery />} />
             <Route path="/reports" element={<ReportingSystem />} />
           </Routes>

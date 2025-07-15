@@ -13,6 +13,7 @@ const StudyMaterials = () => {
   const [showForm, setShowForm] = useState(false);
   const [filter, setFilter] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
+  // No sem selected 
   const [selectedSemester, setSelectedSemester] = useState('');
   const [openSemForm, setOpenSemForm] = useState(false);
   const filteredMaterials = studyMaterials.filter(material => {
