@@ -72,7 +72,7 @@
 }
 
 .filter-tab:hover {
-  background-color: var(--bg-tertiary);
+  background-color: rgb(144, 144, 255);
   color: var(--text-primary);
 }
 

@@ -2,47 +2,29 @@ import React, { useState } from "react";
 import SellItemCard from "./BuyAndSellCard";
 import SellItemForm from "./BuyAndSellForm";
 import "./BuyAndSell.css";
+import { sellItems } from "../../data/mockData";
 
 const BuyAndSell = () => {
+  const [Items, setItems] = useState(sellItems);
   const [showForm, setShowForm] = useState(false);
-
-  const dummyItems = [
-    {
-      id: 1,
-      title: "Wireless Mouse",
-      description: "Almost new Logitech mouse.",
-      category: "electronics",
-      location: "Block A",
-      datePosted: new Date().toISOString(),
-      sellerName: "Ravi Kumar",
-      contact: "9876543210",
-      price: 800,
-      image:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/3-Tasten-Maus_Microsoft.jpg/640px-3-Tasten-Maus_Microsoft.jpg",
-    },
-    {
-      id: 2,
-      title: "Casio Scientific Calculator FX-991EX",
-      description: "Perfect working condition, used for 1 semester.",
-      category: "electronics",
-      location: "Hostel C - Room 202",
-      datePosted: new Date().toISOString(),
-      sellerName: "Rahul Sharma",
-      contact: "9876543210",
-      price: 950,
-      image: "https://m.media-amazon.com/images/I/61HXfPgQcqL._SL1100_.jpg",
-    },
-  ];
-
+  const [selectedCategory, setSelectedCategory] = useState('all');
+  const [searchTerm, setSearchTerm] = useState('');
+  const [activeCardId, setActiveCardId] = useState(null);
   const categories = [
     { value: "all", label: "All Categories" },
     { value: "electronics", label: "Electronics" },
     { value: "books", label: "Books" },
     { value: "furniture", label: "Furniture" },
     { value: "clothing", label: "Clothing" },
+    { value: "stationary", label: "Stationary" },
     { value: "others", label: "Others" },
   ];
-
+  const filteredItems = Items.filter((item)=>{
+    const matchedSearch = item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    item.title.toLowerCase().includes(searchTerm.toLowerCase()) 
+    const catagoryMatch = selectedCategory === 'all' || item.category === selectedCategory;
+    return matchedSearch && catagoryMatch
+  })
   return (
     <div className="buy-and-sell">
       <div className="buy-sell-header">
@@ -58,13 +40,14 @@ const BuyAndSell = () => {
             type="text"
             placeholder="Search items..."
             className="search-input"
-            disabled
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
           />
         </div>
 
         <div className="filter-tabs">
           {categories.map((category) => (
-            <button key={category.value} className="filter-tab" disabled>
+            <button key={category.value} className="filter-tab" onClick={() => setSelectedCategory(category.value)} >
               {category.label}
             </button>
           ))}
@@ -82,7 +65,8 @@ const BuyAndSell = () => {
         <div className="modal-overlay">
           <div className="modal-content">
             <SellItemForm
-              onSubmit={() => setShowForm(false)}
+              Items={Items}
+              setItems={setItems}
               onCancel={() => setShowForm(false)}
             />
           </div>
@@ -90,7 +74,7 @@ const BuyAndSell = () => {
       )}
 
       <div className="buy-sell-grid">
-        {dummyItems.map((item) => (
+        {filteredItems.map((item) => (
           <SellItemCard
             key={item.id}
             item={item}

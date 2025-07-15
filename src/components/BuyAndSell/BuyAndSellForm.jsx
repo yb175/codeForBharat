@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './form.css'
-const SellItemForm = ({ onSubmit, onCancel }) => {
+const SellItemForm = ({ Items,setItems, onCancel }) => {
   const [formData, setFormData] = useState({
     title: '',
     description: '',
@@ -20,6 +20,7 @@ const SellItemForm = ({ onSubmit, onCancel }) => {
     { value: 'books', label: 'Books' },
     { value: 'furniture', label: 'Furniture' },
     { value: 'clothing', label: 'Clothing' },
+    { value: 'stationary', label: 'Stationary' },
     { value: 'others', label: 'Others' }
   ];
 
@@ -43,13 +44,30 @@ const SellItemForm = ({ onSubmit, onCancel }) => {
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
+  function onSubmit(formData) {
+    const updatedItems = [formData,...Items];
+    setItems(updatedItems);
+    setFormData({
+      title: '',
+      description: '',
+      category: 'electronics',
+      location: '',
+      datePosted: '',
+      price: '',
+      image: '',
+      sellerName: '',
+      contact: ''
+    });
+    onCancel();
 
+  }
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
       onSubmit({
         ...formData,
         image: formData.image || 'https://images.pexels.com/photos/699122/pexels-photo-699122.jpeg',
+        id : Items.length+1
       });
     }
   };
