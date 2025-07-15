@@ -87,7 +87,8 @@ const MaterialCard = ({ material }) => {
           <span>📥</span>
           Download
         </button>
-        <button className="btn btn-outline preview-btn">
+        <button className="btn btn-outline preview-btn" onClick={() => window.open(material.fileUrl || '#', '_blank')}
+  disabled={!material.fileUrl}>
           <span>👁️</span>
           Preview
         </button>

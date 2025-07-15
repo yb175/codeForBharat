@@ -227,7 +227,7 @@ const MaterialForm = ({ onSubmit, onCancel }) => {
         </div>
 
         <div className="form-group">
-          <label className="form-label">File URL (Optional)</label>
+          <label className="form-label">File URL</label>
           <input
             type="url"
             name="fileUrl"

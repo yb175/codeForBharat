@@ -105,7 +105,7 @@ export const mockData = {
     downloads: 321,
     tags: ['c-language', 'basics', 'programming'],
     createdAt: '2024-01-05T10:00:00Z',
-    fileUrl: '#'
+    fileUrl: 'https://drive.google.com/file/d/1E01pK6ib7eOzBiku_NSFPlbBN2olnijC/view'
   },
   {
     id: '2',
@@ -119,7 +119,7 @@ export const mockData = {
     downloads: 198,
     tags: ['optics', 'motion', 'thermodynamics'],
     createdAt: '2024-01-06T11:00:00Z',
-    fileUrl: '#'
+    fileUrl: 'https://drive.google.com/file/d/1vvVlywtRaf6tJGwKQ8sGqXo9fpRAXP-w/view'
   },
   {
     id: '3',
@@ -147,7 +147,7 @@ export const mockData = {
     downloads: 356,
     tags: ['limits', 'differentiation', 'integration'],
     createdAt: '2024-01-08T09:30:00Z',
-    fileUrl: '#'
+    fileUrl: 'https://drive.google.com/file/d/1aR1jWqbZHM-IUQwzBOTACtMVMp2j5wFB/view'
   },
   {
     id: '5',
@@ -189,7 +189,7 @@ export const mockData = {
     downloads: 280,
     tags: ['calculus', 'limits', 'derivatives'],
     createdAt: '2024-01-11T08:45:00Z',
-    fileUrl: '#'
+    fileUrl: 'https://drive.google.com/file/d/1aR1jWqbZHM-IUQwzBOTACtMVMp2j5wFB/view'
   },
   {
     id: '8',
@@ -203,7 +203,7 @@ export const mockData = {
     downloads: 203,
     tags: ['organic', 'chemical-bonding', 'acids'],
     createdAt: '2024-01-12T10:15:00Z',
-    fileUrl: '#'
+    fileUrl: 'https://drive.google.com/file/d/1KFH1HejZwdEXq50bxm05A2t7mHHbXPW_/view'
   },
   {
     id: '9',
@@ -231,7 +231,7 @@ export const mockData = {
     downloads: 239,
     tags: ['environment', 'sustainability', 'ecosystem'],
     createdAt: '2024-01-14T16:00:00Z',
-    fileUrl: '#'
+    fileUrl: 'https://drive.google.com/file/d/1VTeUPm3R1g_ka1r9jBz4pDg7bPXMg_Vu/view'
   },
   {
     id: '11',
@@ -245,7 +245,7 @@ export const mockData = {
     downloads: 311,
     tags: ['c-language', 'lab', 'programming'],
     createdAt: '2024-01-15T10:30:00Z',
-    fileUrl: '#'
+    fileUrl: 'https://drive.google.com/file/d/1E01pK6ib7eOzBiku_NSFPlbBN2olnijC/view'
   },
   {
     id: '12',
@@ -259,7 +259,7 @@ export const mockData = {
     downloads: 197,
     tags: ['matrices', 'differential', 'vector'],
     createdAt: '2024-01-16T13:20:00Z',
-    fileUrl: '#'
+    fileUrl: 'https://drive.google.com/file/d/1aR1jWqbZHM-IUQwzBOTACtMVMp2j5wFB/view'
   },
   {
     id: '13',
@@ -287,7 +287,7 @@ export const mockData = {
     downloads: 176,
     tags: ['practical', 'chemistry', 'observations'],
     createdAt: '2024-01-18T12:50:00Z',
-    fileUrl: '#'
+    fileUrl: 'https://drive.google.com/file/d/1KFH1HejZwdEXq50bxm05A2t7mHHbXPW_/view'
   },
   {
     id: '15',
