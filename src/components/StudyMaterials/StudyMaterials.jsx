@@ -20,7 +20,8 @@ const StudyMaterials = () => {
                          material.subject.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          material.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
     const matchesFilter = filter === 'all' || material.subject.toLowerCase() === filter.toLowerCase();
-    return matchesSearch && matchesFilter;
+    const matchesSemester = selectedSemester==='' || material.semester.toLowerCase() === selectedSemester.toLowerCase(); 
+    return (matchesSearch && matchesFilter) && matchesSemester;
   });
 
   const handleAddMaterial = (materialData) => {
@@ -92,6 +93,8 @@ const StudyMaterials = () => {
         <div className="modal-overlay">
             <SemForm
               onCancel={() => setOpenSemForm(false)}
+              selectedSemester={selectedSemester}
+              setSelectedSemester={setSelectedSemester}
             />
         </div>
       )}
