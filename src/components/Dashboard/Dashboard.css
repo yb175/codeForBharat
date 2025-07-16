@@ -245,7 +245,42 @@
   }
 }
 @media (max-width: 600px) {
-  .stats-grid {
-    grid-template-columns: 1fr; /* 1 column on mobile */
+  .dashboard-section {
+    padding: 0.75rem;
+    font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+  .section-title {
+    font-size: 1.1rem;
+    flex-wrap: wrap;
+    word-break: break-word;
+  }
+  .dashboard-item {
+    padding: 0.5rem;
+    flex-direction: row;
+    gap: 0.5rem;
+    min-width: 0;
+    max-width: 100%;
+  }
+  .item-title, .item-subtitle {
+    font-size: 0.9rem;
+    white-space: normal;
+    word-break: break-word;
+  }
+  .section-content {
+    gap: 0.5rem;
+  }
+}
+
+/* Prevent .dashboard-grid from overflowing */
+@media (max-width: 600px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
   }
 }

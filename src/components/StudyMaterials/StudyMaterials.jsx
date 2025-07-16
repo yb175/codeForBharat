@@ -15,7 +15,7 @@ const StudyMaterials = () => {
   const [searchTerm, setSearchTerm] = useState('');
   // No sem selected 
   const [selectedSemester, setSelectedSemester] = useState('');
-  const [openSemForm, setOpenSemForm] = useState(false);
+  const [openSemForm, setOpenSemForm] = useState(true);
   const filteredMaterials = studyMaterials.filter(material => {
     const matchesSearch = material.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          material.subject.toLowerCase().includes(searchTerm.toLowerCase()) ||
