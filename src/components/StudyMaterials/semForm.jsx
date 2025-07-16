@@ -27,9 +27,6 @@ export default function SemForm({selectedSemester,setSelectedSemester,onCancel})
             </li>
           ))}
         </ul>
-        <button className="cancel-btn neon-red" onClick={()=>onCancel()}>
-          ✖ Cancel
-        </button>
       </div>
     </div>
   );

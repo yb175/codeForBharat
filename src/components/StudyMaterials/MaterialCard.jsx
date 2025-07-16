@@ -87,22 +87,8 @@ const MaterialCard = ({ material }) => {
           <span>📥</span>
           Download
         </button>
- <button
-  type="button"
-  className="btn btn-outline preview-btn"
-  onClick={() => {
-    const fallbackUrl = 'https://drive.google.com/file/d/1vvVlywtRaf6tJGwKQ8sGqXo9fpRAXP-w/view';
-    const url = material.fileUrl?.trim();
-
-    // Use fallback if fileUrl is missing, empty string, or '#'
-    const openUrl = (!url || url === '#' || url === '') ? fallbackUrl : url;
-
-    // Explicit check to ensure absolute URLs are opened
-    const fullUrl = openUrl.startsWith('http') ? openUrl : `https://${openUrl}`;
-
-    window.open(fullUrl, '_blank');
-  }}
->
+        <button className="btn btn-outline preview-btn" onClick={() => window.open(material.fileUrl || '#', '_blank')}
+  disabled={!material.fileUrl}>
           <span>👁️</span>
           Preview
         </button>
