@@ -76,14 +76,13 @@
   color: var(--text-primary);
 }
 
-.filter-tab.active {
-  background-color: var(--primary-color);
-  color: white;
-  border-color: var(--primary-color);
-}
-
 .add-item-btn {
   white-space: nowrap;
+}
+.filter-tab .active {
+  background-color: #007bff; /* Bootstrap blue */
+  color: white;
+  border-radius: 5px;
 }
 
 .modal-overlay {

@@ -9,7 +9,6 @@ const BuyAndSell = () => {
   const [showForm, setShowForm] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
-  const [activeCardId, setActiveCardId] = useState(null);
   const categories = [
     { value: "all", label: "All Categories" },
     { value: "electronics", label: "Electronics" },
@@ -44,10 +43,10 @@ const BuyAndSell = () => {
             onChange={(e) => setSearchTerm(e.target.value)}
           />
         </div>
-
         <div className="filter-tabs">
           {categories.map((category) => (
-            <button key={category.value} className="filter-tab" onClick={() => setSelectedCategory(category.value)} >
+            <button key={category.value} className={`filter-tab  ${selectedCategory === category.value ? "active" : ""}`} 
+              onClick={() => setSelectedCategory(category.value)} >
               {category.label}
             </button>
           ))}
