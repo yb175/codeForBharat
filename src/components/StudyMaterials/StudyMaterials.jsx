@@ -14,44 +14,8 @@ const StudyMaterials = () => {
   const [filter, setFilter] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedSemester, setSelectedSemester] = useState('');
-<<<<<<< HEAD
   const [openSemForm, setOpenSemForm] = useState(true);
-  const filteredMaterials = studyMaterials.filter(material => {
-    const matchesSearch = material.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         material.subject.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         material.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
-    const matchesFilter = filter === 'all' || material.subject.toLowerCase() === filter.toLowerCase();
-    const matchesSemester = selectedSemester==='' || material.semester.toLowerCase() === selectedSemester.toLowerCase(); 
-    return (matchesSearch && matchesFilter) && matchesSemester;
-  });
-=======
-  const [openSemForm, setOpenSemForm] = useState(false);
-  const [isInitialized, setIsInitialized] = useState(false);
-
-  if (!studyMaterials) {
-    return (
-      <div className="study-materials">
-        <div className="materials-header">
-          <div className="header-content">
-            <div className="title-section">
-              <h1 className="materials-title">Study Materials</h1>
-              <p className="materials-subtitle">Loading...</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  useEffect(() => {
-  if (!isInitialized) {
-    setIsInitialized(true);
-    if (!selectedSemester) {
-      setOpenSemForm(true);
-    }
-  }
-}, [isInitialized, selectedSemester]);
->>>>>>> 5365de1d6af678fb297d9f09d44e6c605b3346a9
+ 
 
   const handleAddMaterial = (materialData) => {
     if (!materialData || !selectedSemester) return;
@@ -258,21 +222,7 @@ const StudyMaterials = () => {
         </>
       )}
 
-      {!selectedSemester && (
-        <div className="semester-prompt">
-          <div className="prompt-content">
-            <div className="prompt-icon">🎓</div>
-            <h2>Select Your Semester</h2>
-            <p>Choose your current semester to view relevant study materials</p>
-            <button
-              className="btn btn-primary btn-large"
-              onClick={() => setOpenSemForm(true)}
-            >
-              📚 Select Semester
-            </button>
-          </div>
-        </div>
-      )}
+      
     </div>
   );
 };
