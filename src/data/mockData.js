@@ -133,7 +133,7 @@ export const mockData = {
     downloads: 267,
     tags: ['current', 'circuit', 'ohm-law'],
     createdAt: '2024-01-07T13:00:00Z',
-    fileUrl: '#'
+    
   },
   {
     id: '4',
@@ -147,7 +147,7 @@ export const mockData = {
     downloads: 356,
     tags: ['limits', 'differentiation', 'integration'],
     createdAt: '2024-01-08T09:30:00Z',
-    fileUrl: 'https://drive.google.com/file/d/1aR1jWqbZHM-IUQwzBOTACtMVMp2j5wFB/view'
+    fileUrl: '#'
   },
   {
     id: '5',
@@ -245,7 +245,7 @@ export const mockData = {
     downloads: 311,
     tags: ['c-language', 'lab', 'programming'],
     createdAt: '2024-01-15T10:30:00Z',
-    fileUrl: 'https://drive.google.com/file/d/1E01pK6ib7eOzBiku_NSFPlbBN2olnijC/view'
+    fileUrl: '#'
   },
   {
     id: '12',
@@ -259,7 +259,7 @@ export const mockData = {
     downloads: 197,
     tags: ['matrices', 'differential', 'vector'],
     createdAt: '2024-01-16T13:20:00Z',
-    fileUrl: 'https://drive.google.com/file/d/1aR1jWqbZHM-IUQwzBOTACtMVMp2j5wFB/view'
+    fileUrl: '#'
   },
   {
     id: '13',
@@ -287,7 +287,7 @@ export const mockData = {
     downloads: 176,
     tags: ['practical', 'chemistry', 'observations'],
     createdAt: '2024-01-18T12:50:00Z',
-    fileUrl: 'https://drive.google.com/file/d/1KFH1HejZwdEXq50bxm05A2t7mHHbXPW_/view'
+    fileUrl: '#'
   },
   {
     id: '15',

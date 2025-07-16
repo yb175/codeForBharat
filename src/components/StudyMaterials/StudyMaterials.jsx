@@ -3,7 +3,6 @@ import { useApp } from '../../context/AppContext';
 import { useAuth } from '../../context/AuthContext';
 import MaterialCard from './MaterialCard';
 import MaterialForm from './MaterialForm';
-import { Link,Outlet } from 'react-router';
 import './StudyMaterials.css';
 import SemForm from './semForm';
 
@@ -15,15 +14,6 @@ const StudyMaterials = () => {
   const [searchTerm, setSearchTerm] = useState('');
   // No sem selected 
   const [selectedSemester, setSelectedSemester] = useState('');
-  const [openSemForm, setOpenSemForm] = useState(false);
-  const filteredMaterials = studyMaterials.filter(material => {
-    const matchesSearch = material.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         material.subject.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         material.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
-    const matchesFilter = filter === 'all' || material.subject.toLowerCase() === filter.toLowerCase();
-    const matchesSemester = selectedSemester==='' || material.semester.toLowerCase() === selectedSemester.toLowerCase(); 
-    return (matchesSearch && matchesFilter) && matchesSemester;
-  });
 
   const handleAddMaterial = (materialData) => {
     addStudyMaterial({
@@ -34,6 +24,29 @@ const StudyMaterials = () => {
   };
 
   const subjects = ['all', 'computer science', 'mathematics', 'physics', 'chemistry', 'biology', 'english', 'history'];
+
+  const filteredMaterials = studyMaterials.filter(material => {
+    const matchesSearch =
+      material.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      material.subject.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      material.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
+    const matchesFilter = filter === 'all' || material.subject.toLowerCase() === filter.toLowerCase();
+    const matchesSemester = material.semester.toLowerCase() === selectedSemester.toLowerCase();
+    return matchesSearch && matchesFilter && matchesSemester;
+  });
+
+  // ✅ Prevent rendering until semester is selected
+  if (!selectedSemester) {
+    return (
+      <div className="modal-overlay">
+        <SemForm
+          selectedSemester={selectedSemester}
+          setSelectedSemester={setSelectedSemester}
+          onCancel={() => {}}
+        />
+      </div>
+    );
+  }
 
   return (
     <div className="study-materials">
@@ -52,7 +65,7 @@ const StudyMaterials = () => {
             className="search-input"
           />
         </div>
-        
+
         <div className="filter-tabs">
           {subjects.map(subject => (
             <button
@@ -60,45 +73,33 @@ const StudyMaterials = () => {
               className={`filter-tab ${filter === subject ? 'active' : ''}`}
               onClick={() => setFilter(subject)}
             >
-              {subject === 'all' ? 'All Subjects' : 
-               subject.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
+              {subject === 'all' ? 'All Subjects' : subject.replace(/\b\w/g, l => l.toUpperCase())}
             </button>
           ))}
         </div>
-        <div className="add-material-btn-container" style={{ display: 'flex', gap: '10px' }}>
-        <button
-          className="btn btn-primary add-material-btn"
-          onClick={() => setOpenSemForm(true)}
-        >
-          Select Semester
-        </button>
-        <button
-          className="btn btn-primary add-material-btn"
-          onClick={() => setShowForm(true)}
-        >
-          + Upload Material
-        </button>
+
+        <div className="add-material-btn-container">
+          <button
+            className="btn btn-primary add-material-btn"
+            onClick={() => setShowForm(true)}
+          >
+            + Upload Material
+          </button>
         </div>
       </div>
+
       {showForm && (
         <div className="modal-overlay">
           <div className="modal-content">
             <MaterialForm
               onSubmit={handleAddMaterial}
               onCancel={() => setShowForm(false)}
+              selectedSemester={selectedSemester}
             />
           </div>
         </div>
       )}
-      {openSemForm && (
-        <div className="modal-overlay">
-            <SemForm
-              onCancel={() => setOpenSemForm(false)}
-              selectedSemester={selectedSemester}
-              setSelectedSemester={setSelectedSemester}
-            />
-        </div>
-      )}
+
       <div className="materials-stats">
         <div className="stat-card">
           <div className="stat-icon">📚</div>
@@ -107,7 +108,7 @@ const StudyMaterials = () => {
             <div className="stat-label">Total Materials</div>
           </div>
         </div>
-        
+
         <div className="stat-card">
           <div className="stat-icon">📥</div>
           <div className="stat-content">
@@ -115,7 +116,7 @@ const StudyMaterials = () => {
             <div className="stat-label">Total Downloads</div>
           </div>
         </div>
-        
+
         <div className="stat-card">
           <div className="stat-icon">🎓</div>
           <div className="stat-content">
