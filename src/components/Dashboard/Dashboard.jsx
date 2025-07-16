@@ -73,6 +73,7 @@ const Dashboard = () => {
               <div className="stat-value">{stat.value}</div>
               <div className="stat-title">{stat.title}</div>
             </div>
+           
           </div>
         ))}
       </div>
