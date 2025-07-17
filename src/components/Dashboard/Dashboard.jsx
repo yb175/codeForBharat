@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useApp } from '../../context/AppContext';
 import { useAuth } from '../../context/AuthContext';
+import { Outlet } from 'react-router-dom';
 import './Dashboard.css';
 
 const Dashboard = () => {
@@ -67,7 +68,9 @@ const Dashboard = () => {
         <h1 className="dashboard-title">Welcome back {user?.displayName || 'Student'}! 👋</h1>
         <p className="dashboard-subtitle">Here's what's happening on campus today</p>
       </div>
-
+      <div className="dashboard-outlet-wrapper">
+          <Outlet />
+      </div>
       <div className="stats-grid">
         {stats.map((stat, index) => (
           <div key={index} className={`stat-card ${stat.color}`}>
@@ -86,7 +89,7 @@ const Dashboard = () => {
           <div className="section-content">
             {recentEvents.length > 0 ? (
               recentEvents.map(event => (
-                <Link key={event.id} to={`/event/${event.id}`} className="dashboard-item-link">
+                <Link key={event.id} to={`event/${event.id}`} className="dashboard-item-link">
                   <div className="dashboard-item">
                     <div className="item-icon">🎉</div>
                     <div className="item-content">
@@ -107,7 +110,7 @@ const Dashboard = () => {
           <div className="section-content">
             {recentLostItems.length > 0 ? (
               recentLostItems.map(item => (
-                <Link key={item.id} to={`/lost-item/${item.id}`} className="dashboard-item-link">
+                <Link key={item.id} to={`lost-item/${item.id}`} className="dashboard-item-link">
                   <div className="dashboard-item">
                     <div className="item-icon">🔍</div>
                     <div className="item-content">
@@ -128,7 +131,7 @@ const Dashboard = () => {
           <div className="section-content">
             {recentMaterials.length > 0 ? (
               recentMaterials.map(material => (
-                <Link key={material.id} to={`/study-material/${material.id}`} className="dashboard-item-link">
+                <Link key={material.id} to={`study-material/${material.id}`} className="dashboard-item-link">
                   <div className="dashboard-item">
                     <div className="item-icon">📚</div>
                     <div className="item-content">
@@ -149,7 +152,7 @@ const Dashboard = () => {
           <div className="section-content">
             {recentGroups.length > 0 ? (
               recentGroups.map(group => (
-                <Link key={group.id} to={`/study-group/${group.id}`} className="dashboard-item-link">
+                <Link key={group.id} to={`study-group/${group.id}`} className="dashboard-item-link">
                   <div className="dashboard-item">
                     <div className="item-icon">👥</div>
                     <div className="item-content">
@@ -170,7 +173,7 @@ const Dashboard = () => {
           <div className="section-content">
             {recentMedia.length > 0 ? (
               recentMedia.map(media => (
-                <Link key={media.id} to={`/media/${media.id}`} className="dashboard-item-link">
+                <Link key={media.id} to={`media/${media.id}`} className="dashboard-item-link">
                   <div className="dashboard-item">
                     <div className="item-icon">📸</div>
                     <div className="item-content">
@@ -191,7 +194,7 @@ const Dashboard = () => {
           <div className="section-content">
             {unreadNotifications.length > 0 ? (
               unreadNotifications.map(notification => (
-                <Link key={notification.id} to={`/notification/${notification.id}`} className="dashboard-item-link">
+                <Link key={notification.id} to={`notification/${notification.id}`} className="dashboard-item-link">
                   <div className="dashboard-item">
                     <div className="item-icon">🔔</div>
                     <div className="item-content">

@@ -42,28 +42,36 @@ const MainApplication = () => {
       <main className="main-content">
         <div className="container">
           <Routes>
-            <Route path="/" element={<Navigate to="/dashboard" replace />} />
-            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/" element={<Navigate to="/dashboard" replace />} /> 
+            <Route path="/dashboard" element={<Dashboard />}>
+                <Route path="event/:eventId" element={<EventModal />} />
+              <Route path="lost-item/:itemId" element={<LostItemModal />} />
+              <Route path="media/:mediaId" element={<MediaModal />} />
+              <Route
+                path="study-group/:groupId"
+                element={<StudyGroupModal />}
+              />
+              <Route
+                path="study-material/:materialId"
+                element={<StudyMaterialModal />}
+              />
+              <Route
+                path="notification/:notificationId"
+                element={<NotificationModal />}
+              />
+            </Route>
+
             <Route path="/events" element={<Events />} />
             <Route path="/lost-found" element={<LostAndFound />}>
-              <Route path="contactReporter/:id" element={<ContactReporter/>} />
+              <Route path="contactReporter/:id" element={<ContactReporter />} />
             </Route>
             <Route path="/study-materials" element={<StudyMaterials />} />
-              <Route path="semform" element={<SemForm />}></Route>
-            <Route/>
+            <Route path="semform" element={<SemForm />}></Route>
+            <Route />
             <Route path="/study-groups" element={<StudyGroups />} />
             <Route path="/buy-and-sell" element={<BuyAndSell />} />
             <Route path="/media" element={<MediaGallery />} />
             <Route path="/reports" element={<ReportingSystem />} />
-
-            <Route path="/event/:eventId" element={<EventModal />} />
-            <Route path="/lost-item/:itemId" element={<LostItemModal />} />
-            <Route path="/media/:mediaId" element={<MediaModal />} />
-            <Route path="/study-group/:groupId" element={<StudyGroupModal />} />
-            <Route path="/study-material/:materialId" element={<StudyMaterialModal />} />
-            <Route path="/notification/:notificationId" element={<NotificationModal />} />
-            
-    
           </Routes>
         </div>
       </main>
