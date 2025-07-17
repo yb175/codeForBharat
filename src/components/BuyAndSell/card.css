@@ -1,4 +1,4 @@
-.sell-item-card {
+.sellItem-card {
   background-color: var(--bg-primary);
   border-radius: 0.75rem;
   overflow: hidden;
@@ -9,29 +9,29 @@
   flex-direction: column;
 }
 
-.sell-item-card:hover {
+.sellItem-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-lg);
 }
 
-.item-image {
+.sellItem-imageWrapper {
   position: relative;
   height: 200px;
   overflow: hidden;
 }
 
-.item-image img {
+.sellItem-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.3s ease;
 }
 
-.sell-item-card:hover .item-image img {
+.sellItem-card:hover .sellItem-image {
   transform: scale(1.05);
 }
 
-.item-price {
+.sellItem-price {
   position: absolute;
   bottom: 1rem;
   right: 1rem;
@@ -44,12 +44,12 @@
   box-shadow: var(--shadow-sm);
 }
 
-.item-content {
+.sellItem-content {
   padding: 1.5rem;
   flex: 1;
 }
 
-.item-title {
+.sellItem-title {
   font-size: 1.25rem;
   font-weight: 700;
   color: var(--text-primary);
@@ -57,7 +57,7 @@
   margin-bottom: 0.5rem;
 }
 
-.item-category {
+.sellItem-category {
   background-color: var(--bg-secondary);
   padding: 0.375rem 0.75rem;
   border-radius: 1rem;
@@ -69,7 +69,7 @@
   margin-bottom: 1rem;
 }
 
-.item-description {
+.sellItem-description {
   color: var(--text-secondary);
   font-size: 0.875rem;
   line-height: 1.5;
@@ -79,7 +79,7 @@
   overflow: hidden;
 }
 
-.item-details {
+.sellItem-details {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
@@ -88,15 +88,15 @@
   margin-bottom: 1rem;
 }
 
-.item-actions {
+.sellItem-actions {
   display: flex;
   gap: 0.75rem;
   padding: 1rem 1.5rem;
   border-top: 1px solid var(--border-color);
-  background-color: var(--bg-secondary);
+  background-color: var(--bg-primary);
 }
 
-.item-actions .btn {
+.sellItem-actions .btn {
   flex: 1;
   text-align: center;
   padding: 0.75rem;
@@ -105,28 +105,38 @@
 }
 
 @media (max-width: 768px) {
-  .item-image {
+  .sellItem-imageWrapper {
     height: 150px;
   }
 
-  .item-content {
+  .sellItem-content {
     padding: 1rem;
   }
 
-  .item-title {
+  .sellItem-title {
     font-size: 1.125rem;
   }
 
-  .item-description {
+  .sellItem-description {
     font-size: 0.8125rem;
   }
 
-  .item-actions {
+  .sellItem-actions {
     padding: 0.75rem 1rem;
     flex-direction: column;
   }
 
-  .item-actions .btn {
+  .sellItem-actions .btn {
     width: 100%;
   }
+}
+
+.sellItem-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.sellItem-actions {
+  margin-top: auto; /* Pushes the button to bottom */
 }
