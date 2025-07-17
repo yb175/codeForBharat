@@ -1,15 +1,15 @@
-import React from 'react';
-import { useParams, useNavigate } from 'react-router';
-import { useApp } from '../../context/AppContext';
-import { X, Calendar, Clock, MapPin, Users, User } from 'lucide-react';
-import './EventModal.css'; // ✅ Import the new CSS file
+import React from "react";
+import { useParams, useNavigate } from "react-router";
+import { useApp } from "../../context/AppContext";
+import { X, Calendar, Clock, MapPin, Users, User } from "lucide-react";
+import "./EventModal.css"; // ✅ Import the new CSS file
 
 const EventModal = () => {
   const { eventId } = useParams();
   const navigate = useNavigate();
   const { events } = useApp();
 
-  const event = events.find(e => e.id === eventId);
+  const event = events.find((e) => e.id === eventId);
 
   const closeModal = () => navigate(-1);
 
@@ -23,7 +23,9 @@ const EventModal = () => {
         <div className="event-modal-content">
           <div className="centered">
             <h2 className="modal-title">Event Not Found</h2>
-            <button className="btn-primary" onClick={closeModal}>Close</button>
+            <button className="btn-primary" onClick={closeModal}>
+              Close
+            </button>
           </div>
         </div>
       </div>
@@ -31,68 +33,65 @@ const EventModal = () => {
   }
 
   return (
-    <div className="modal-backdrop" onClick={handleBackdropClick}>
-      <div className="modal-main">
-        <div className="modal-header">
-          <h2 className="modal-heading">{event.title}</h2>
-          <button onClick={closeModal} className="btn-icon" aria-label="Close modal">
-            <X className="icon" />
-          </button>
+    <div className="event-modal-backdrop" onClick={handleBackdropClick}>
+      <div className="event-modal-main">
+        <div className="event-modal-header">
+          <h2 className="event-modal-heading">{event.title}</h2>
         </div>
 
-        <div className="modal-body">
-          <div className="modal-grid">
-            <div className="modal-item">
+        <div className="event-modal-body">
+          <div className="event-modal-grid">
+            <div className="event-modal-item">
               <Calendar className="icon colored" />
               <div>
-                <p className="label">Date</p>
-                <p className="value">
-                  {new Date(event.date).toLocaleDateString('en-US', {
-                    weekday: 'long',
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
+                <p className="event-label">Date</p>
+                <p className="event-value">
+                  {new Date(event.date).toLocaleDateString("en-US", {
+                    weekday: "long",
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
                   })}
                 </p>
               </div>
             </div>
 
-            <div className="modal-item">
+            <div className="event-modal-item">
               <Clock className="icon colored green" />
               <div>
-                <p className="label">Time</p>
-                <p className="value">{event.time}</p>
+                <p className="event-label">Time</p>
+                <p className="event-value">{event.time}</p>
               </div>
             </div>
 
-            <div className="modal-item">
+            <div className="event-modal-item">
               <MapPin className="icon colored red" />
               <div>
-                <p className="label">Location</p>
-                <p className="value">{event.location}</p>
+                <p className="event-label">Location</p>
+                <p className="event-value">{event.location}</p>
               </div>
             </div>
 
-            <div className="modal-item">
+            <div className="event-modal-item">
               <User className="icon colored purple" />
               <div>
-                <p className="label">Organizer</p>
-                <p className="value">{event.organizer}</p>
+                <p className="event-label">Organizer</p>
+                <p className="event-value">{event.organizer}</p>
               </div>
             </div>
           </div>
 
-          <div className="modal-section">
-            <h3 className="section-title">Description</h3>
-            <p className="section-text">{event.description}</p>
+          <div className="event-modal-section">
+            <h3 className="event-section-title">Description</h3>
+            <p className="event-section-text">{event.description}</p>
           </div>
 
-          <div className="modal-attendance">
-            <div className="attendance-label">
+          <div className="event-modal-attendance">
+            <div className="event-attendance-label">
               <Users className="icon colored" />
               <span>Attendance</span>
             </div>
-            <div className="attendance-count">
+            <div className="event-attendance-count">
               <p className="count">{event.registeredUsers}</p>
               {event.maxParticipants && (
                 <p className="max-count">of {event.maxParticipants} max</p>
@@ -100,8 +99,10 @@ const EventModal = () => {
             </div>
           </div>
 
-          <div className="modal-actions">
-            <button className="btn-secondary" onClick={closeModal}>Close</button>
+          <div className="event-modal-actions">
+            <button className="btn-secondary" onClick={closeModal}>
+              Close
+            </button>
             <button className="btn-primary">Register for Event</button>
           </div>
         </div>
@@ -111,4 +112,3 @@ const EventModal = () => {
 };
 
 export default EventModal;
-
