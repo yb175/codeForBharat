@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import { useApp } from '../../context/AppContext';
 import { useAuth } from '../../context/AuthContext';
-import { Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router';
 import './Dashboard.css';
 
 const Dashboard = () => {
