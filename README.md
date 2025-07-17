@@ -1,4 +1,4 @@
-# Campus Connect - Digital Ecosystem
+# Campus Core - Digital Ecosystem
 
 A comprehensive campus management system built with React that brings together various essential services under a single platform to simplify and enhance campus life.
 
