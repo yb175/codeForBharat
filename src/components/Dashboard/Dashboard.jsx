@@ -68,9 +68,7 @@ const Dashboard = () => {
         <h1 className="dashboard-title">Welcome back {user?.displayName || 'Student'}! 👋</h1>
         <p className="dashboard-subtitle">Here's what's happening on campus today</p>
       </div>
-      <div className="dashboard-outlet-wrapper">
-          <Outlet />
-      </div>
+      <Outlet />
       <div className="stats-grid">
         {stats.map((stat, index) => (
           <div key={index} className={`stat-card ${stat.color}`}>
