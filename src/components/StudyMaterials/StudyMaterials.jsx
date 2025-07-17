@@ -98,14 +98,13 @@ const StudyMaterials = () => {
           <div className="semester-navbar">
             {selectedSemester ? (
               <div className="semester-display">
-                <span className="semester-label">Current Semester:</span>
                 <div className="semester-badge">
-                  <span className="semester-text">Semester {selectedSemester}</span>
                   <button
                     className="change-semester-btn"
                     onClick={() => setOpenSemForm(true)}
                     title="Change Semester"
                   >
+                    <span className="semester-text">Semester {selectedSemester}</span>
                     ⚙️
                   </button>
                 </div>
