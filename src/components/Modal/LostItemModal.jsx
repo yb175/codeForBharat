@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router';
 import { useApp } from '../../context/AppContext';
 import { X, Calendar, Clock, MapPin, User, Tag } from 'lucide-react';
 import './LostItemModal.css'; // ✅ Import the new CSS
