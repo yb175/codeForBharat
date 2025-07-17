@@ -47,20 +47,8 @@ const MediaModal = () => {
         </div>
 
         <div className="media-modal-body">
-          <div className="media-type-indicator">
-            {media.type === 'photo' ? <Camera className="media-icon" /> : <Video className="media-icon" />}
-            <span className="media-type-label">{media.type === 'photo' ? 'Photo' : 'Video'}</span>
-          </div>
-
           <div className="media-preview">
-            {media.type === 'photo' ? (
-              <img src={media.url} alt={media.title} className="media-image" />
-            ) : (
-              <div className="video-placeholder">
-                <Video className="icon-large" />
-                <p>Video preview not available</p>
-              </div>
-            )}
+              <img src={media.imageUrl} alt={media.title} className="media-image" />
           </div>
 
           <div className="media-info-grid">
