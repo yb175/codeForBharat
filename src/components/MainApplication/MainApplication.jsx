@@ -15,6 +15,12 @@ import ReportingSystem from "../ReportingSystem/ReportingSystem";
 import ContactReporter from "../LostAndFound/contactReporter";
 import SemForm from "../StudyMaterials/semForm";
 import "./MainApplication.css";
+import EventModal from "../Modal/EventModal";
+import LostItemModal from "../Modal/LostItemModal";
+import MediaModal from "../Modal/MediaModal";
+import NotificationModal from "../Modal/NotificationModal";
+import StudyGroupModal from "../Modal/StudyGroupModal";
+import StudyMaterialModal from "../Modal/StudyMaterialModal";
 
 const MainApplication = () => {
   const { user, loading } = useAuth();
@@ -49,6 +55,15 @@ const MainApplication = () => {
             <Route path="/buy-and-sell" element={<BuyAndSell />} />
             <Route path="/media" element={<MediaGallery />} />
             <Route path="/reports" element={<ReportingSystem />} />
+
+            <Route path="/event/:eventId" element={<EventModal />} />
+            <Route path="/lost-item/:itemId" element={<LostItemModal />} />
+            <Route path="/media/:mediaId" element={<MediaModal />} />
+            <Route path="/study-group/:groupId" element={<StudyGroupModal />} />
+            <Route path="/study-material/:materialId" element={<StudyMaterialModal />} />
+            <Route path="/notification/:notificationId" element={<NotificationModal />} />
+            
+    
           </Routes>
         </div>
       </main>
