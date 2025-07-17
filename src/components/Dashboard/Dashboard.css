@@ -18,6 +18,11 @@
   font-size: 1.125rem;
 }
 
+.dashboard-item-link{
+  text-decoration: none;
+  color: inherit;
+}
+
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(200px, 1fr));

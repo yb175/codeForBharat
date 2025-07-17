@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import { useAuth } from '../../context/AuthContext';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { useApp } from '../../context/AppContext';
+import { useAuth } from '../../context/AuthContext';
 import './Dashboard.css';
 
 const Dashboard = () => {
@@ -12,13 +13,14 @@ const Dashboard = () => {
   const recentGroups = studyGroups.slice(0, 3);
   const recentMedia = mediaItems.slice(0, 3);
   const unreadNotifications = notifications.filter(n => !n.read).slice(0, 5);
-  const [user, setUser] = React.useState(null);
-  useState(()=>{
+  const [user, setUser] = useState(null);
+  
+  useEffect(() => {
     const storedUser = localStorage.getItem('campusUser');
     if (storedUser) {
       setUser(JSON.parse(storedUser));
     }
-  },[user])
+  }, []);
 
   const stats = [
     {
@@ -58,10 +60,11 @@ const Dashboard = () => {
       color: 'accent'
     }
   ];
+
   return (
     <div className="dashboard">
       <div className="dashboard-header">
-        <h1 className="dashboard-title">Welcome back {user?.displayName} !</h1>
+        <h1 className="dashboard-title">Welcome back {user?.displayName || 'Student'}! 👋</h1>
         <p className="dashboard-subtitle">Here's what's happening on campus today</p>
       </div>
 
@@ -73,7 +76,6 @@ const Dashboard = () => {
               <div className="stat-value">{stat.value}</div>
               <div className="stat-title">{stat.title}</div>
             </div>
-           
           </div>
         ))}
       </div>
@@ -84,13 +86,15 @@ const Dashboard = () => {
           <div className="section-content">
             {recentEvents.length > 0 ? (
               recentEvents.map(event => (
-                <div key={event.id} className="dashboard-item">
-                  <div className="item-icon">🎉</div>
-                  <div className="item-content">
-                    <h3 className="item-title">{event.title}</h3>
-                    <p className="item-subtitle">{event.date} • {event.location}</p>
+                <Link key={event.id} to={`/event/${event.id}`} className="dashboard-item-link">
+                  <div className="dashboard-item">
+                    <div className="item-icon">🎉</div>
+                    <div className="item-content">
+                      <h3 className="item-title">{event.title}</h3>
+                      <p className="item-subtitle">{event.date} • {event.location}</p>
+                    </div>
                   </div>
-                </div>
+                </Link>
               ))
             ) : (
               <p className="empty-state">No recent events</p>
@@ -103,13 +107,15 @@ const Dashboard = () => {
           <div className="section-content">
             {recentLostItems.length > 0 ? (
               recentLostItems.map(item => (
-                <div key={item.id} className="dashboard-item">
-                  <div className="item-icon">🔍</div>
-                  <div className="item-content">
-                    <h3 className="item-title">{item.title}</h3>
-                    <p className="item-subtitle">{item.location} • {item.status}</p>
+                <Link key={item.id} to={`/lost-item/${item.id}`} className="dashboard-item-link">
+                  <div className="dashboard-item">
+                    <div className="item-icon">🔍</div>
+                    <div className="item-content">
+                      <h3 className="item-title">{item.title}</h3>
+                      <p className="item-subtitle">{item.location} • {item.status}</p>
+                    </div>
                   </div>
-                </div>
+                </Link>
               ))
             ) : (
               <p className="empty-state">No recent lost items</p>
@@ -122,13 +128,15 @@ const Dashboard = () => {
           <div className="section-content">
             {recentMaterials.length > 0 ? (
               recentMaterials.map(material => (
-                <div key={material.id} className="dashboard-item">
-                  <div className="item-icon">📚</div>
-                  <div className="item-content">
-                    <h3 className="item-title">{material.title}</h3>
-                    <p className="item-subtitle">{material.subject} • {material.semester}</p>
+                <Link key={material.id} to={`/study-material/${material.id}`} className="dashboard-item-link">
+                  <div className="dashboard-item">
+                    <div className="item-icon">📚</div>
+                    <div className="item-content">
+                      <h3 className="item-title">{material.title}</h3>
+                      <p className="item-subtitle">{material.subject} • {material.semester}</p>
+                    </div>
                   </div>
-                </div>
+                </Link>
               ))
             ) : (
               <p className="empty-state">No recent materials</p>
@@ -141,13 +149,15 @@ const Dashboard = () => {
           <div className="section-content">
             {recentGroups.length > 0 ? (
               recentGroups.map(group => (
-                <div key={group.id} className="dashboard-item">
-                  <div className="item-icon">👥</div>
-                  <div className="item-content">
-                    <h3 className="item-title">{group.title}</h3>
-                    <p className="item-subtitle">{group.subject} • {group.members.length} members</p>
+                <Link key={group.id} to={`/study-group/${group.id}`} className="dashboard-item-link">
+                  <div className="dashboard-item">
+                    <div className="item-icon">👥</div>
+                    <div className="item-content">
+                      <h3 className="item-title">{group.title}</h3>
+                      <p className="item-subtitle">{group.subject} • {group.members.length} members</p>
+                    </div>
                   </div>
-                </div>
+                </Link>
               ))
             ) : (
               <p className="empty-state">No recent study groups</p>
@@ -160,13 +170,15 @@ const Dashboard = () => {
           <div className="section-content">
             {recentMedia.length > 0 ? (
               recentMedia.map(media => (
-                <div key={media.id} className="dashboard-item">
-                  <div className="item-icon">📸</div>
-                  <div className="item-content">
-                    <h3 className="item-title">{media.title}</h3>
-                    <p className="item-subtitle">{media.type} • {media.likes} likes</p>
+                <Link key={media.id} to={`/media/${media.id}`} className="dashboard-item-link">
+                  <div className="dashboard-item">
+                    <div className="item-icon">📸</div>
+                    <div className="item-content">
+                      <h3 className="item-title">{media.title}</h3>
+                      <p className="item-subtitle">{media.type} • {media.likes} likes</p>
+                    </div>
                   </div>
-                </div>
+                </Link>
               ))
             ) : (
               <p className="empty-state">No recent media</p>
@@ -179,13 +191,15 @@ const Dashboard = () => {
           <div className="section-content">
             {unreadNotifications.length > 0 ? (
               unreadNotifications.map(notification => (
-                <div key={notification.id} className="dashboard-item">
-                  <div className="item-icon">🔔</div>
-                  <div className="item-content">
-                    <h3 className="item-title">{notification.title}</h3>
-                    <p className="item-subtitle">{notification.message}</p>
+                <Link key={notification.id} to={`/notification/${notification.id}`} className="dashboard-item-link">
+                  <div className="dashboard-item">
+                    <div className="item-icon">🔔</div>
+                    <div className="item-content">
+                      <h3 className="item-title">{notification.title}</h3>
+                      <p className="item-subtitle">{notification.message}</p>
+                    </div>
                   </div>
-                </div>
+                </Link>
               ))
             ) : (
               <p className="empty-state">No new notifications</p>
