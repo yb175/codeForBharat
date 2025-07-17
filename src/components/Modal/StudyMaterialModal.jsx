@@ -42,7 +42,7 @@ const StudyMaterialModal = () => {
           </button>
         </div>
 
-        <div className="modal-content">
+        <div className="study-modal-content">
           <div className="info-grid">
             <div className="info-block">
               <BookOpen className="icon green" />

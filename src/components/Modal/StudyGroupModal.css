@@ -1,4 +1,5 @@
-.modal-overlay {
+/* Problemetic point : we have to change name  */
+.study-group-modal-overlay {
   position: fixed;
   inset: 0;
   background-color: rgba(0, 0, 0, 0.5);

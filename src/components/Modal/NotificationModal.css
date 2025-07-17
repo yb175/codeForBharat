@@ -40,7 +40,7 @@
   background-color: #2563eb;
 }
 
-.modal-content {
+.notification-modal-content {
   background-color: white;
   border-radius: 0.75rem;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);

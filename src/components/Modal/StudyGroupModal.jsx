@@ -19,8 +19,8 @@ const StudyGroupModal = () => {
 
   if (!group) {
     return (
-      <div className="modal-overlay" onClick={handleBackdropClick}>
-        <div className="modal-container">
+      <div className="study-group-modal-overlay" onClick={handleBackdropClick}>
+        <div className="study-group-modal-container">
           <div className="modal-content-center">
             <h2 className="modal-heading">Study Group Not Found</h2>
             <button onClick={closeModal} className="close-button">
@@ -33,7 +33,7 @@ const StudyGroupModal = () => {
   }
 
   return (
-    <div className="modal-overlay" onClick={handleBackdropClick}>
+    <div className="study-group-modal-overlay" onClick={handleBackdropClick}>
       <div className="modal-box">
         <div className="modal-header">
           <h2 className="modal-title">{group.title}</h2>

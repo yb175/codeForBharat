@@ -20,7 +20,7 @@ const EventModal = () => {
   if (!event) {
     return (
       <div className="modal-backdrop" onClick={handleBackdropClick}>
-        <div className="modal-content">
+        <div className="event-modal-content">
           <div className="centered">
             <h2 className="modal-title">Event Not Found</h2>
             <button className="btn-primary" onClick={closeModal}>Close</button>

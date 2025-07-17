@@ -20,7 +20,7 @@ const LostItemModal = () => {
   if (!item) {
     return (
       <div className="modal-backdrop" onClick={handleBackdropClick}>
-        <div className="modal-content">
+        <div className="lostItem-modal-content">
           <div className="centered">
             <h2 className="modal-title">Item Not Found</h2>
             <button className="btn-primary" onClick={closeModal}>Close</button>

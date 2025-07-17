@@ -54,7 +54,7 @@
   color: #f97316;
 }
 
-.modal-content {
+.study-modal-content {
   display: flex;
   flex-direction: column;
   gap: 20px;

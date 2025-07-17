@@ -10,7 +10,8 @@
   padding: 1rem;
 }
 
-.modal-content, .modal-main {
+/* mistake here : name to be changed*/
+.lostItem-modal-content, .modal-main {
   background-color: var(--bg-primary);
   border-radius: 1rem;
   box-shadow: var(--shadow-lg);
