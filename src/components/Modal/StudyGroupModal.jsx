@@ -85,9 +85,7 @@ const StudyGroupModal = () => {
           <div className="section members">
             <h3 className="section-title">Current Members</h3>
             <div className="member-list">
-              {group.members.map((member, i) => (
-                <span key={i} className="member-chip">{member}</span>
-              ))}
+             {group.members.length}
             </div>
           </div>
 
