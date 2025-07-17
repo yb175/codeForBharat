@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router';
 import { useApp } from '../../context/AppContext';
 import { X, Users, BookOpen, MapPin, Clock, UserPlus } from 'lucide-react';
 import './StudyGroupModal.css';

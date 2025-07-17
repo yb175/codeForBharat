@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router';
 import { useApp } from '../../context/AppContext';
 import { X, Bell, Calendar, Tag, CheckCircle } from 'lucide-react';
 import './NotificationModal.css';

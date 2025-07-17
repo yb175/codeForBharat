@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router';
 import { useApp } from '../../context/AppContext';
 import { X, Calendar, Clock, MapPin, Users, User } from 'lucide-react';
 import './EventModal.css'; // ✅ Import the new CSS file

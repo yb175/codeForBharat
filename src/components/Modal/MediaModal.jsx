@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router';
 import { useApp } from '../../context/AppContext';
 import { X, Heart, User, Calendar, Camera, Video } from 'lucide-react';
 import './MediaModal.css'; // Import the CSS file
