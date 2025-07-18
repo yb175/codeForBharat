@@ -1,4 +1,4 @@
-.modal-backdrop {
+.notif-backdrop {
   position: fixed;
   inset: 0;
   background-color: rgba(0, 0, 0, 0.5);
@@ -9,52 +9,53 @@
   padding: 1rem;
 }
 
-.modal-container {
-  background: white;
+.notif-container {
+  background: var(--bg-primary);
   border-radius: 0.75rem;
   padding: 2rem;
   max-width: 28rem;
   width: 100%;
+  box-shadow: var(--shadow-md);
 }
 
-.modal-center {
+.notif-center {
   text-align: center;
 }
 
-.modal-title {
+.notif-title {
   font-size: 1.25rem;
   font-weight: 600;
-  color: #1f2937;
+  color: var(--text-primary);
   margin-bottom: 1rem;
 }
 
-.modal-close-button {
+.notif-close-button {
   padding: 0.5rem 1rem;
-  background-color: #3b82f6;
+  background-color: var(--primary-color);
   color: white;
   border-radius: 0.5rem;
   transition: background-color 0.2s;
 }
 
-.modal-close-button:hover {
+.notif-close-button:hover {
   background-color: #2563eb;
 }
 
-.notification-modal-content {
-  background-color: white;
+.notif-content {
+  background-color: var(--bg-primary);
   border-radius: 0.75rem;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow-lg);
   max-width: 48rem;
   width: 100%;
   max-height: 90vh;
   overflow-y: auto;
 }
 
-.modal-header {
+.notif-header {
   position: sticky;
   top: 0;
-  background-color: white;
-  border-bottom: 1px solid #e5e7eb;
+  background-color: var(--bg-primary);
+  border-bottom: 1px solid var(--border-color);
   padding: 1.5rem;
   display: flex;
   justify-content: space-between;
@@ -63,107 +64,113 @@
   border-top-right-radius: 0.75rem;
 }
 
-.modal-header-title {
+.notif-header-title {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #1f2937;
+  color: var(--text-primary);
 }
 
-.modal-close-icon {
+.notif-close-icon {
   padding: 0.5rem;
   border-radius: 9999px;
   transition: background-color 0.2s;
+  color: var(--text-muted);
+}
+.notif-close-icon:hover {
+  background-color: var(--bg-tertiary);
 }
 
-.modal-close-icon:hover {
-  background-color: #f3f4f6;
-}
-
-.modal-body {
+.notif-body {
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
 }
 
-.modal-status {
+.notif-status {
   display: flex;
   align-items: center;
   gap: 0.75rem;
   margin-bottom: 1rem;
 }
 
-.modal-status-badge {
+.notif-badge {
   padding: 0.25rem 0.75rem;
   border-radius: 9999px;
   font-size: 0.875rem;
   font-weight: 500;
 }
-
-.modal-status-badge.unread {
+.notif-badge.unread {
   background-color: #ffedd5;
   color: #c2410c;
 }
-
-.modal-status-badge.read {
-  background-color: #f3f4f6;
-  color: #374151;
+[data-theme="dark"] .notif-badge.unread {
+  background-color: #78350f;
+  color: #fde68a;
+}
+.notif-badge.read {
+  background-color: var(--bg-tertiary);
+  color: var(--text-muted);
 }
 
-.modal-grid {
+.notif-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
 }
-
 @media (min-width: 768px) {
-  .modal-grid {
+  .notif-grid {
     grid-template-columns: 1fr 1fr;
   }
 }
 
-.modal-detail {
+.notif-detail {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  color: #4b5563;
+  color: var(--text-secondary);
 }
 
-.modal-message {
-  background-color: #f9fafb;
+.notif-message {
+  background-color: var(--bg-secondary);
   border-radius: 0.5rem;
   padding: 1rem;
+  color: var(--text-secondary);
 }
 
-.modal-unread-warning {
+.notif-warning {
   background-color: #fff7ed;
   border: 1px solid #fed7aa;
   border-radius: 0.5rem;
   padding: 1rem;
 }
+[data-theme="dark"] .notif-warning {
+  background-color: #7c2d12;
+  border-color: #fb923c;
+  color: #fcd34d;
+}
 
-.modal-buttons {
+.notif-buttons {
   display: flex;
   justify-content: center;
   gap: 1rem;
   padding-top: 1rem;
 }
 
-.modal-button-secondary {
+.notif-btn-secondary {
   padding: 0.5rem 1.5rem;
-  border: 1px solid #d1d5db;
-  color: #374151;
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
   border-radius: 0.5rem;
   transition: background-color 0.2s;
 }
-
-.modal-button-secondary:hover {
-  background-color: #f9fafb;
+.notif-btn-secondary:hover {
+  background-color: var(--bg-tertiary);
 }
 
-.modal-button-primary {
+.notif-btn-primary {
   padding: 0.5rem 1.5rem;
-  background-color: #f97316;
+  background-color: var(--warning-color);
   color: white;
   border-radius: 0.5rem;
   transition: background-color 0.2s;
@@ -171,8 +178,8 @@
   align-items: center;
   gap: 0.5rem;
 }
-
-.modal-button-primary:hover {
+.notif-btn-primary:hover {
   background-color: #ea580c;
 }
+
 

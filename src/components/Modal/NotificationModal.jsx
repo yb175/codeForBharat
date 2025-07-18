@@ -11,9 +11,7 @@ const NotificationModal = () => {
 
   const notification = notifications.find(n => n.id === notificationId);
 
-  const closeModal = () => {
-    navigate(-1);
-  };
+  const closeModal = () => navigate(-1);
 
   const handleBackdropClick = (e) => {
     if (e.target === e.currentTarget) {
@@ -23,11 +21,11 @@ const NotificationModal = () => {
 
   if (!notification) {
     return (
-      <div className="modal-backdrop" onClick={handleBackdropClick}>
-        <div className="modal-container">
-          <div className="modal-center">
-            <h2 className="modal-title">Notification Not Found</h2>
-            <button onClick={closeModal} className="modal-close-button">
+      <div className="notif-backdrop" onClick={handleBackdropClick}>
+        <div className="notif-container">
+          <div className="notif-center">
+            <h2 className="notif-title">Notification Not Found</h2>
+            <button onClick={closeModal} className="notif-close-button">
               Close
             </button>
           </div>
@@ -37,29 +35,25 @@ const NotificationModal = () => {
   }
 
   return (
-    <div className="modal-backdrop" onClick={handleBackdropClick}>
-      <div className="notification-modal-content">
-        <div className="modal-header">
-          <h2 className="modal-header-title">{notification.title}</h2>
-          <button
-            onClick={closeModal}
-            className="modal-close-icon"
-            aria-label="Close modal"
-          >
-            <X className="w-6 h-6 text-gray-500" />
+    <div className="notif-backdrop" onClick={handleBackdropClick}>
+      <div className="notif-content">
+        <div className="notif-header">
+          <h2 className="notif-header-title">{notification.title}</h2>
+          <button onClick={closeModal} className="notif-close-icon" aria-label="Close modal">
+            <X className="w-6 h-6" />
           </button>
         </div>
 
-        <div className="modal-body">
-          <div className="modal-status">
+        <div className="notif-body">
+          <div className="notif-status">
             <Bell className="w-6 h-6 text-orange-500" />
-            <span className={`modal-status-badge ${notification.read ? 'read' : 'unread'}`}>
+            <span className={`notif-badge ${notification.read ? 'read' : 'unread'}`}>
               {notification.read ? 'Read' : 'Unread'}
             </span>
           </div>
 
-          <div className="modal-grid">
-            <div className="modal-detail">
+          <div className="notif-grid">
+            <div className="notif-detail">
               <Calendar className="w-5 h-5 text-blue-500" />
               <div>
                 <p className="font-medium">Date</p>
@@ -67,7 +61,7 @@ const NotificationModal = () => {
               </div>
             </div>
 
-            <div className="modal-detail">
+            <div className="notif-detail">
               <Tag className="w-5 h-5 text-purple-500" />
               <div>
                 <p className="font-medium">Type</p>
@@ -76,29 +70,29 @@ const NotificationModal = () => {
             </div>
           </div>
 
-          <div className="modal-message">
-            <h3 className="font-semibold text-gray-800 mb-2">Message</h3>
-            <p className="text-gray-600 leading-relaxed">{notification.message}</p>
+          <div className="notif-message">
+            <h3 className="font-semibold mb-2">Message</h3>
+            <p>{notification.message}</p>
           </div>
 
           {!notification.read && (
-            <div className="modal-unread-warning">
+            <div className="notif-warning">
               <div className="flex items-center space-x-2">
                 <Bell className="w-5 h-5 text-orange-500" />
-                <span className="font-medium text-orange-800">This notification is unread</span>
+                <span className="font-medium">This notification is unread</span>
               </div>
-              <p className="text-sm text-orange-600 mt-1">
+              <p className="text-sm mt-1">
                 Mark as read to remove it from your unread notifications.
               </p>
             </div>
           )}
 
-          <div className="modal-buttons">
-            <button onClick={closeModal} className="modal-button-secondary">
+          <div className="notif-buttons">
+            <button onClick={closeModal} className="notif-btn-secondary">
               Close
             </button>
             {!notification.read && (
-              <button className="modal-button-primary">
+              <button className="notif-btn-primary">
                 <CheckCircle className="w-4 h-4" />
                 <span>Mark as Read</span>
               </button>
@@ -111,4 +105,5 @@ const NotificationModal = () => {
 };
 
 export default NotificationModal;
+
 
