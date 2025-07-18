@@ -72,7 +72,7 @@ const StudyMaterialModal = () => {
           <div className="download-section">
             <div className="download-label">
               <Download className="icon green" />
-              <span>Downloads</span>
+              <span>Downloads - 28</span>
             </div>
           </div>
 

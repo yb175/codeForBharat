@@ -1,7 +1,7 @@
 .modal-backdrop {
   position: fixed;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.4); /* optional: make this a --overlay-color variable if needed */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,12 +10,12 @@
 }
 
 .modal-container {
-  background: white;
+  background: var(--bg-primary);
   border-radius: 12px;
   width: 100%;
   max-width: 600px;
   padding: 24px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow-lg);
 }
 
 .modal-header {
@@ -28,7 +28,7 @@
 .modal-title {
   font-size: 20px;
   font-weight: bold;
-  color: #2d2d2d;
+  color: var(--text-primary);
 }
 
 .modal-close-btn {
@@ -43,15 +43,15 @@
 }
 
 .green {
-  color: #22c55e;
+  color: var(--success-color);
 }
 
 .blue {
-  color: #3b82f6;
+  color: var(--primary-color);
 }
 
 .orange {
-  color: #f97316;
+  color: var(--warning-color);
 }
 
 .study-modal-content {
@@ -71,22 +71,28 @@
   gap: 10px;
   align-items: center;
   flex: 1 1 45%;
+  background-color: var(--bg-secondary);
+  border-radius: 0.4rem;
+  padding: 10px;
 }
 
 .info-label {
   font-size: 14px;
-  color: #6b7280;
+  color: var(--text-muted);
 }
 
 .info-text {
   font-size: 16px;
-  color: #111827;
+  color: var(--text-primary);
 }
 
 .download-section {
   display: flex;
   align-items: center;
   gap: 10px;
+  background-color: var(--bg-secondary);
+  border-radius: 0.4rem;
+  padding: 10px;
 }
 
 .download-label {
@@ -94,22 +100,25 @@
   align-items: center;
   gap: 8px;
   font-weight: 500;
-  color: #111;
+  color: var(--text-primary);
 }
 
 .about-section {
-  padding-top: 10px;
+  padding: 10px;
+  background-color: var(--bg-secondary);
+  border-radius: 0.4rem;
 }
 
 .about-title {
   font-size: 16px;
   font-weight: 600;
   margin-bottom: 6px;
+  color: var(--text-primary);
 }
 
 .about-text {
   font-size: 14px;
-  color: #374151;
+  color: var(--text-secondary);
   line-height: 1.5;
 }
 
@@ -121,8 +130,8 @@
 }
 
 .close-button {
-  background-color: #e5e7eb;
-  color: #111827;
+  background-color: var(--border-color);
+  color: var(--text-primary);
   padding: 8px 16px;
   border-radius: 6px;
   border: none;
@@ -130,7 +139,7 @@
 }
 
 .download-button {
-  background-color: #3b82f6;
+  background-color: var(--primary-color);
   color: white;
   padding: 8px 16px;
   border-radius: 6px;
@@ -139,27 +148,28 @@
 }
 
 .download-button:hover {
-  background-color: #2563eb;
+  background-color: #2563eb; /* Optional: define hover variable */
 }
 
 .modal-notfound {
-  background: white;
+  background: var(--bg-primary);
   padding: 24px;
   border-radius: 12px;
   max-width: 400px;
   width: 100%;
   text-align: center;
+  box-shadow: var(--shadow-lg);
 }
 
 .notfound-title {
   font-size: 18px;
   font-weight: 600;
-  color: #2d2d2d;
+  color: var(--text-primary);
   margin-bottom: 16px;
 }
 
 .notfound-close-btn {
-  background-color: #3b82f6;
+  background-color: var(--primary-color);
   color: white;
   padding: 8px 16px;
   border-radius: 6px;
@@ -170,6 +180,3 @@
 .notfound-close-btn:hover {
   background-color: #2563eb;
 }
-
-
-
