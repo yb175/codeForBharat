@@ -1,9 +1,9 @@
-/* Problemetic point : we have to change name  */
 .study-group-modal-overlay {
+
   position: fixed;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 50;
+  background: rgba(17, 24, 39, 0.65); /* darker for premium depth */ /* Optional: You can create --overlay-color if needed */
+  z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11,7 +11,8 @@
 }
 
 .modal-container {
-  background-color: #fff;
+  background-color: var(--bg-primary);
+  box-shadow: var(--shadow-lg);
   border-radius: 0.75rem;
   padding: 2rem;
   max-width: 400px;
@@ -25,13 +26,13 @@
 .modal-heading {
   font-size: 1.25rem;
   font-weight: 600;
-  color: #1f2937;
+  color: var(--text-primary);
   margin-bottom: 1rem;
 }
 
 .close-button {
   padding: 0.5rem 1rem;
-  background-color: #3b82f6;
+  background-color: var(--primary-color);
   color: white;
   border-radius: 0.5rem;
   border: none;
@@ -40,13 +41,13 @@
 }
 
 .close-button:hover {
-  background-color: #2563eb;
+  background-color: #2563eb; /* Adjust if you want a variable */
 }
 
 .modal-box {
-  background-color: #fff;
+  background-color: var(--bg-primary);
   border-radius: 1rem;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow-lg);
   max-width: 700px;
   width: 100%;
   max-height: 90vh;
@@ -56,8 +57,8 @@
 .modal-header {
   position: sticky;
   top: 0;
-  background-color: white;
-  border-bottom: 1px solid #e5e7eb;
+  background-color: var(--bg-primary);
+  border-bottom: 1px solid var(--border-color);
   padding: 1.5rem;
   display: flex;
   justify-content: space-between;
@@ -69,7 +70,7 @@
 .modal-title {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #1f2937;
+  color: var(--text-primary);
 }
 
 .modal-close-icon {
@@ -81,7 +82,7 @@
 }
 
 .modal-close-icon:hover {
-  background-color: #f3f4f6;
+  background-color: var(--bg-tertiary);
 }
 
 .icon {
@@ -90,19 +91,19 @@
 }
 
 .purple {
-  color: #8b5cf6;
+  color: var(--purple-color);
 }
 
 .blue {
-  color: #3b82f6;
+  color: var(--primary-color);
 }
 
 .red {
-  color: #ef4444;
+  color: var(--danger-color);
 }
 
 .green {
-  color: #10b981;
+  color: var(--secondary-color);
 }
 
 .modal-body {
@@ -128,7 +129,7 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  color: #4b5563;
+  color: var(--text-secondary);
 }
 
 .label {
@@ -145,11 +146,11 @@
 }
 
 .description {
-  background-color: #f9fafb;
+  background-color: var(--bg-secondary);
 }
 
 .members {
-  background-color: #f3e8ff;
+  background-color: var(--bg-secondary); /* You can replace this with --accent-color or define a new --members-bg */
 }
 
 .member-list {
@@ -159,8 +160,8 @@
 }
 
 .member-chip {
-  background-color: #ede9fe;
-  color: #7c3aed;
+  background-color: #ede9fe; /* Optionally map to --accent-color */
+  color: var(--purple-color);
   padding: 0.25rem 0.75rem;
   border-radius: 9999px;
   font-size: 0.875rem;
@@ -168,7 +169,7 @@
 }
 
 .available {
-  background-color: #eff6ff;
+  background-color: var(--bg-tertiary);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -182,7 +183,7 @@
 }
 
 .blue-label {
-  color: #1e40af;
+  color: #1e40af; /* Optional: map to var(--primary-color) */
   font-weight: 500;
 }
 
@@ -204,17 +205,17 @@
 }
 
 .outlined {
-  border: 1px solid #d1d5db;
-  background-color: white;
-  color: #374151;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
 }
 
 .outlined:hover {
-  background-color: #f9fafb;
+  background-color: var(--bg-secondary);
 }
 
 .join-button {
-  background-color: #8b5cf6;
+  background-color: var(--purple-color);
   color: white;
   border-radius: 0.5rem;
   padding: 0.5rem 1.5rem;

@@ -36,7 +36,7 @@ const StudyGroupModal = () => {
     <div className="study-group-modal-overlay" onClick={handleBackdropClick}>
       <div className="modal-box">
         <div className="modal-header">
-          <h2 className="modal-title">{group.title}</h2>
+          <h2 className="modal-title" style={{ color: 'var(--text-primary)' }} >{group.title}</h2>
           <button onClick={closeModal} className="modal-close-icon" aria-label="Close modal">
             <X className="icon" />
           </button>
@@ -92,7 +92,7 @@ const StudyGroupModal = () => {
           <div className="section available">
             <div className="available-info">
               <UserPlus className="icon blue" />
-              <span className="label blue-label">Available Spots</span>
+              <span className="label blue-label" style={{ color: 'var(--text-primary)' }}>Available Spots</span>
             </div>
             <div className="available-count">
               <p className="available-number">{group.maxMembers - group.members.length}</p>
