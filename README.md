@@ -36,12 +36,11 @@ Campus Connect tackles the issue of fragmented and inefficient campus management
 - Difficulty level categorization
 - Member management system
 
-### 🏆 Gamified Leaderboard
-- Points system for campus activities
-- Real-time ranking updates
-- Achievement tracking
-- Progress visualization
-- Competitive engagement features
+### 🛍️ Buy & Sell Second-Hand Items
+- Easy listing of used campus essentials
+- Secure in-campus transactions
+- Categories for books, electronics, and more
+- Promote sustainability & affordability
 
 ### 📸 Media Gallery
 - Campus meme sharing platform
