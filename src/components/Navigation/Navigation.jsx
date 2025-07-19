@@ -32,7 +32,7 @@ const Navigation = () => {
       <div className="nav-container nav-container--vertical">
         <div className="nav-top-row">
           <div className="nav-brand">
-            <h1 className="nav-title">Campus Connect</h1>
+            <h1 className="nav-title">Campus Core</h1>
             <span className="nav-subtitle">Digital Ecosystem</span>
           </div>
           <div className="nav-user">
