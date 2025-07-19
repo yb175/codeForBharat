@@ -91,7 +91,7 @@ const AuthenticationPage = () => {
     <div className="auth-page">
       <div className="auth-container">
         <div className="auth-header">
-          <h1 className="auth-title">Campus Connect</h1>
+          <h1 className="auth-title">Campus Core</h1>
           <p className="auth-subtitle">Your Digital Campus Ecosystem</p>
           <button className="theme-toggle" onClick={toggleTheme}>
             {theme === "light" ? "🌙" : "☀️"}
