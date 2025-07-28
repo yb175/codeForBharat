@@ -1,112 +1,81 @@
-.media-modal-backdrop {
+.media-modal__backdrop {
   position: fixed;
   inset: 0;
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 50;
+  z-index: 100;
   padding: 1rem;
 }
 
-.media-modal-box {
-  background-color: #fff;
+.media-modal__box {
+  background-color: var(--bg-primary);
   border-radius: 1rem;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow-lg);
   max-width: 64rem;
   width: 100%;
   max-height: 90vh;
   overflow-y: auto;
+  border: 1px solid var(--border-color);
+  transition: background-color 0.3s ease;
 }
 
-.media-modal-header {
+.media-modal__header {
   position: sticky;
   top: 0;
-  background-color: #fff;
-  border-bottom: 1px solid #e5e7eb;
+  background-color: var(--bg-primary);
+  border-bottom: 1px solid var(--border-color);
   padding: 1rem 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
+  border-radius: 1rem 1rem 0 0;
 }
 
-.media-modal-header h2 {
+.media-modal__header h2 {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #1f2937;
+  color: var(--text-primary);
 }
 
-.icon-button {
+.media-modal__icon-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
   padding: 0.5rem;
   border-radius: 9999px;
-  transition: background-color 0.2s ease-in-out;
+  transition: background-color 0.2s ease;
 }
 
-.icon-button:hover {
-  background-color: #f3f4f6;
+.media-modal__icon-btn:hover {
+  background-color: var(--bg-secondary);
 }
 
-.icon {
+.media-modal__icon {
+  color: var(--text-secondary);
   width: 1.5rem;
   height: 1.5rem;
-  color: #6b7280;
 }
 
-.media-modal-body {
+.media-modal__body {
   padding: 1.5rem;
 }
 
-.media-type-indicator {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 1rem;
-}
-
-.media-icon {
-  width: 1.5rem;
-  height: 1.5rem;
-  color: #ec4899;
-}
-
-.media-type-label {
-  background-color: #fce7f3;
-  color: #be185d;
-  padding: 0.25rem 0.75rem;
-  border-radius: 9999px;
-  font-size: 0.875rem;
-  font-weight: 500;
-}
-
-.media-preview {
-  background-color: #f3f4f6;
+.media-modal__preview {
+  background-color: var(--bg-tertiary);
   border-radius: 0.5rem;
   overflow: hidden;
+  border: 1px solid var(--border-color);
 }
 
-.media-image {
+.media-modal__image {
   width: 100%;
   height: 24rem;
   object-fit: cover;
 }
 
-.video-placeholder {
-  height: 24rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #9ca3af;
-  font-size: 1rem;
-}
-
-.icon-large {
-  width: 4rem;
-  height: 4rem;
-}
-
-.media-info-grid {
+.media-modal__info-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
@@ -114,132 +83,145 @@
 }
 
 @media (min-width: 768px) {
-  .media-info-grid {
+  .media-modal__info-grid {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
-.info-item {
+.media-modal__info-item {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  color: #4b5563;
+  color: var(--text-secondary);
 }
 
-.info-icon {
+.media-modal__info-icon {
   width: 1.25rem;
   height: 1.25rem;
 }
 
-.info-icon.blue {
-  color: #3b82f6;
+.media-modal__info-icon.blue {
+  color: var(--primary-color);
+}
+.media-modal__info-icon.green {
+  color: var(--secondary-color);
+}
+.media-modal__info-icon.red {
+  color: var(--danger-color);
 }
 
-.info-icon.green {
-  color: #10b981;
+.media-modal__info-title {
+  font-weight: 600;
+  color: var(--text-primary);
 }
 
-.info-icon.red {
-  color: #ef4444;
-}
-
-.info-title {
-  font-weight: 500;
-}
-
-.info-text {
+.media-modal__info-text {
   font-size: 0.875rem;
+  color: var(--text-secondary);
 }
 
-.media-engagement {
+.media-modal__engagement {
   margin-top: 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #fdf2f8;
+  background-color: rgba(236, 72, 153, 0.05);
   padding: 1rem;
   border-radius: 0.5rem;
+  border: 1px solid rgba(236, 72, 153, 0.1);
 }
 
-.engagement-label {
+[data-theme="dark"] .media-modal__engagement {
+  background-color: rgba(236, 72, 153, 0.1);
+  border-color: rgba(236, 72, 153, 0.2);
+}
+
+.media-modal__engagement-label {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: #be185d;
+  color: var(--pink-color);
   font-weight: 500;
 }
 
-.engagement-icon {
+.media-modal__engagement-icon {
   width: 1.25rem;
   height: 1.25rem;
 }
 
-.engagement-stats {
-  text-align: right;
-}
-
-.engagement-stats p {
-  margin: 0;
-}
-
-.engagement-stats p:first-child {
+.media-modal__engagement-stats p:first-child {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #db2777;
+  color: var(--pink-color);
 }
 
-.engagement-sub {
+.media-modal__engagement-sub {
   font-size: 0.875rem;
-  color: #ec4899;
+  color: var(--pink-color);
+  opacity: 0.8;
 }
 
-.modal-actions {
+.media-modal__actions {
   display: flex;
   justify-content: center;
   gap: 1rem;
   margin-top: 1.5rem;
 }
 
-.btn-primary {
+.media-modal__btn-primary,
+.media-modal__btn-secondary,
+.media-modal__btn-like {
   padding: 0.5rem 1rem;
-  background-color: #3b82f6;
-  color: #fff;
   border-radius: 0.5rem;
-  transition: background-color 0.2s ease-in-out;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
-.btn-primary:hover {
+.media-modal__btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+}
+
+.media-modal__btn-primary:hover {
   background-color: #2563eb;
 }
 
-.btn-secondary {
-  padding: 0.5rem 1rem;
-  border: 1px solid #d1d5db;
-  color: #374151;
-  border-radius: 0.5rem;
-  transition: background-color 0.2s ease-in-out;
+.media-modal__btn-secondary {
+  background-color: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
 }
 
-.btn-secondary:hover {
-  background-color: #f9fafb;
+.media-modal__btn-secondary:hover {
+  background-color: var(--bg-secondary);
 }
 
-.btn-like {
+.media-modal__btn-like {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  background-color: #ec4899;
+  background-color: var(--pink-color);
   color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  transition: background-color 0.2s ease-in-out;
+  border: none;
 }
 
-.btn-like:hover {
+.media-modal__btn-like:hover {
   background-color: #db2777;
 }
 
-.like-icon {
+.media-modal__like-icon {
   width: 1rem;
   height: 1rem;
 }
+
+/* Not Found Styling */
+.media-modal__not-found {
+  background: var(--bg-primary);
+  border-radius: 1rem;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: var(--shadow-md);
+}
+

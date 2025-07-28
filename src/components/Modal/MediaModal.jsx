@@ -1,15 +1,15 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router';
 import { useApp } from '../../context/AppContext';
-import { X, Heart, User, Calendar, Camera, Video } from 'lucide-react';
-import './MediaModal.css'; // Import the CSS file
+import { X, Heart, User, Calendar } from 'lucide-react';
+import './MediaModal.css';
 
 const MediaModal = () => {
   const { mediaId } = useParams();
   const navigate = useNavigate();
   const { mediaItems } = useApp();
 
-  const media = mediaItems.find(m => m.id === mediaId);
+  const media = mediaItems.find((m) => m.id === mediaId);
 
   const closeModal = () => {
     navigate(-1);
@@ -23,11 +23,11 @@ const MediaModal = () => {
 
   if (!media) {
     return (
-      <div className="media-modal-backdrop" onClick={handleBackdropClick}>
-        <div className="media-modal-container">
-          <div className="media-modal-content">
+      <div className="media-modal__backdrop" onClick={handleBackdropClick}>
+        <div className="media-modal__container">
+          <div className="media-modal__not-found">
             <h2>Media Not Found</h2>
-            <button onClick={closeModal} className="btn-primary">
+            <button onClick={closeModal} className="media-modal__btn-primary">
               Close
             </button>
           </div>
@@ -37,63 +37,72 @@ const MediaModal = () => {
   }
 
   return (
-    <div className="media-modal-backdrop" onClick={handleBackdropClick}>
-      <div className="media-modal-box">
-        <div className="media-modal-header">
+    <div className="media-modal__backdrop" onClick={handleBackdropClick}>
+      <div className="media-modal__box">
+        <div className="media-modal__header">
           <h2>{media.title}</h2>
-          <button onClick={closeModal} className="icon-button">
-            <X className="icon" />
+          <button onClick={closeModal} className="media-modal__icon-btn">
+            <X className="media-modal__icon" />
           </button>
         </div>
 
-        <div className="media-modal-body">
-          <div className="media-preview">
-              <img src={media.imageUrl} alt={media.title} className="media-image" />
+        <div className="media-modal__body">
+          <div className="media-modal__preview">
+            <img
+              src={media.imageUrl}
+              alt={media.title}
+              className="media-modal__image"
+            />
           </div>
 
-          <div className="media-info-grid">
-            <div className="info-item">
-              <User className="info-icon blue" />
+          <div className="media-modal__info-grid">
+            <div className="media-modal__info-item">
+              <User className="media-modal__info-icon blue" />
               <div>
-                <p className="info-title">Uploaded By</p>
-                <p className="info-text">{media.uploadedBy}</p>
+                <p className="media-modal__info-title">Uploaded By</p>
+                <p className="media-modal__info-text">{media.uploadedBy}</p>
               </div>
             </div>
 
-            <div className="info-item">
-              <Calendar className="info-icon green" />
+            <div className="media-modal__info-item">
+              <Calendar className="media-modal__info-icon green" />
               <div>
-                <p className="info-title">Upload Date</p>
-                <p className="info-text">{new Date(media.uploadDate).toLocaleDateString()}</p>
+                <p className="media-modal__info-title">Upload Date</p>
+                <p className="media-modal__info-text">
+                  {new Date(media.uploadDate).toLocaleDateString()}
+                </p>
               </div>
             </div>
 
-            <div className="info-item">
-              <Heart className="info-icon red" />
+            <div className="media-modal__info-item">
+              <Heart className="media-modal__info-icon red" />
               <div>
-                <p className="info-title">Likes</p>
-                <p className="info-text">{media.likes} likes</p>
+                <p className="media-modal__info-title">Likes</p>
+                <p className="media-modal__info-text">{media.likes} likes</p>
               </div>
             </div>
           </div>
 
-          <div className="media-engagement">
-            <div className="engagement-label">
-              <Heart className="engagement-icon" />
+          <div className="media-modal__engagement">
+            <div className="media-modal__engagement-label">
+              <Heart className="media-modal__engagement-icon" />
               <span>Engagement</span>
             </div>
-            <div className="engagement-stats">
+            <div className="media-modal__engagement-stats">
               <p>{media.likes}</p>
-              <p className="engagement-sub">total likes</p>
+              <p className="media-modal__engagement-sub">total likes</p>
             </div>
           </div>
 
-          <div className="modal-actions">
-            <button onClick={closeModal} className="btn-secondary">
+          <div className="media-modal__actions">
+            <button
+              onClick={closeModal}
+              className="media-modal__btn-secondary"
+            >
               Close
             </button>
-            <button className="btn-like">
-              <Heart className="like-icon" />
+            <button className="media-modal__btn-like">
+              <Heart className="media-modal__like-icon" />
               <span>Like</span>
             </button>
           </div>
@@ -104,4 +113,3 @@ const MediaModal = () => {
 };
 
 export default MediaModal;
-
