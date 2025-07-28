@@ -4,6 +4,7 @@ import { useAuth } from '../../context/AuthContext';
 import EventCard from './EventCard';
 import EventForm from './EventForm';
 import './Events.css';
+import { hackathons } from '../../data/mockData';
 
 const Events = () => {
   const { events, registerForEvent, addEvent } = useApp();
@@ -11,10 +12,13 @@ const Events = () => {
   const [showForm, setShowForm] = useState(false);
   const [filter, setFilter] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
-
+  const filteredHackathons = hackathons.filter((hackathon)=>{
+    const matchedSearch = hackathon?.tagline?.toLowerCase().includes(searchTerm.toLowerCase()) || hackathon?.name?.toLowerCase().includes(searchTerm.toLowerCase()) || hackathon.description.toLowerCase().includes(searchTerm.toLowerCase());
+    return matchedSearch
+  })
   const filteredEvents = events.filter(event => {
-    const matchesSearch = event.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         event.description.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesSearch = event?.title?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                         event?.description?.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesFilter = filter === 'all' || 
                          event.category.toLowerCase() === filter.toLowerCase() ||
                          (filter === 'registered' && event.registeredUsers.includes(user?.id));
@@ -33,7 +37,7 @@ const Events = () => {
     setShowForm(false);
   };
 
-  const categories = ['all', 'technology', 'cultural', 'sports', 'career', 'academic', 'registered'];
+  const categories = ['all', 'technology', 'cultural', 'sports', 'career', 'hackathons', 'registered'];
 
   return (
     <div className="events">
