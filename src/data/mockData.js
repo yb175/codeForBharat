@@ -682,6 +682,7 @@ export const hackathons = [
     name: "ETHIndia Fellowship 3.0",
     slug: "eif3",
     type: "FELLOWSHIP",
+    registrationLink : 'https://eif3.devfolio.co/',
     uuid: "97a12d19ff434e56abf9b7a33e631b02",
     state: null,
     rating: 0,
@@ -718,6 +719,7 @@ export const hackathons = [
     city: null,
     name: "ETHIndia Grants 2.0",
     slug: "ethindiagrants",
+    registrationLink : 'https://ethindia.devfolio.co/',
     type: "GRANT",
     uuid: "31c946a6253a4c72bb2d15568f28bd9b",
     state: null,
@@ -757,6 +759,7 @@ export const hackathons = [
     slug: "mumbaihacks25-round1",
     type: "HACKATHON",
     uuid: "8d5c2af9a0094cb592f57726ecc31003",
+    registrationLink : 'https://mumbaihacks.com/',
     state: null,
     rating: 0,
     country: null,
@@ -794,6 +797,7 @@ export const hackathons = [
     city: null,
     name: "Onchain Summer Awards",
     slug: "onchain-summer-awards",
+    registrationLink : 'https://onchainsummer.xyz/',
     type: "HACKATHON",
     uuid: "7bf7cc43788e4efabe261b0b2de34d8f",
     state: null,
@@ -830,13 +834,14 @@ export const hackathons = [
   },
   {
     id: 51,
-    url: "https://lu.ma/id8ftmym",
     uuid: "3e3f093d2a9548d194c9612ebc477259",
+    type: "Technology",
     image:
       "https://assets.devfolio.co/content/306baf2474b84076b2312e0969a17a70/59c354d5-9ffc-4f48-882c-10437d4a72af.jpeg",
     title: "10 Years of Ethereum Meetups",
     end_time: "2025-06-30T15:30:00+00:00",
     location: "Bangalore, India",
+    registrationLink : 'https://lu.ma/id8ftmym',
     is_online: false,
     start_time: "2025-06-30T10:30:00+00:00",
     description:
@@ -844,8 +849,10 @@ export const hackathons = [
   },
   {
     id: 53,
+    type: "Technology",
     url: "https://events.linuxfoundation.org/kubecon-cloudnativecon-india/",
     uuid: "6b648c70d20e4774a4ecab6c2a0d60dd",
+    registrationLink : 'https://events.linuxfoundation.org/kubecon-cloudnativecon-india/',
     image:
       "https://assets.devfolio.co/content/306baf2474b84076b2312e0969a17a70/f29b40f3-ee42-4aa2-9c4f-780deff6026a.png",
     title: "KubeCon + CloudNativeCon India 2025",
