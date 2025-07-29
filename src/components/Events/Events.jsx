@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useApp } from "../../context/AppContext";
 import { useAuth } from "../../context/AuthContext";
 import EventCard from "./EventCard";
@@ -12,7 +12,33 @@ const Events = () => {
   const [showForm, setShowForm] = useState(false);
   const [filter, setFilter] = useState("all");
   const [searchTerm, setSearchTerm] = useState("");
-  const data = [...events, ...hackathons];
+  const [unstopEvents, setUnstopEvents] = useState([]);
+
+  // API Call to Fetch Events from unstop
+  useEffect(() => {
+    async function fetchData() {
+      const proxyServer = "https://cors-anywhere.herokuapp.com/";
+      const unstopAPI =
+        "https://unstop.com/api/public/opportunity/search-result?opportunity=all&page=1&per_page=15&oppstatus=open&domain=2&course=6&specialization=Computer%20Science%20and%20Engineering&usertype=students&passingOutYear=2028";
+
+      const response = await fetch(proxyServer + unstopAPI);
+      const data = await response.json();
+      console.log(data.data.data);
+      setUnstopEvents(data.data.data || []);
+    }
+    fetchData();
+  }, []);
+  // Assigned a source to Data Coming from devfolio
+  const unstopData = unstopEvents.map((event) => ({
+    ...event,
+    src: "unstop",
+    category:
+    event.type?.toLowerCase() === "quizzes"
+      ? "quiz"
+      : event.type?.slice(0, -1).toLowerCase() || "",
+  }));
+
+  const data = [...events, ...hackathons, ...unstopData];
   const filteredEvents = data.filter((event) => {
     const matchesSearch =
       event?.title?.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -36,6 +62,7 @@ const Events = () => {
     addEvent({
       ...eventData,
       organizer: user?.name || "Unknown",
+      src: "system",
     });
     setShowForm(false);
   };

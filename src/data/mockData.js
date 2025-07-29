@@ -2,6 +2,7 @@ export const mockData = {
   events: [
     {
       id: "1",
+      src : "system",
       title: "Annual Tech Fest",
       description:
         "Join us for the biggest tech festival of the year with workshops, competitions, and networking.",
@@ -20,6 +21,7 @@ export const mockData = {
     },
     {
       id: "2",
+      src : "system",
       title: "Cultural Night",
       description:
         "Celebrate diversity with music, dance, and cultural performances from around the world.",
@@ -38,6 +40,7 @@ export const mockData = {
     },
     {
       id: "3",
+      src : "system",
       title: "Career Fair 2025",
       description:
         "Meet top recruiters and explore career opportunities in various industries.",

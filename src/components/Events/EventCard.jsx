@@ -3,6 +3,33 @@ import "./EventCard.css";
 
 const EventCard = ({ event }) => {
   const [isRegistered, setIsRegistered] = useState(false);
+  if (event?.src === "devfolio") {
+    event = {
+      ...event,
+      title: event.name,
+      description: event.tagline,
+      date: event.ends_at,
+      image: event.hackathon_setting?.logo ||  event.logo,
+      category: event.type,
+      registeredUsers: event.registered_users || [],
+      maxParticipants: event.max_participants || 0,
+      location: event.region,
+      organiser : 'college'
+    };
+  }
+  if (event?.src === "unstop") {
+    event = {
+      ...event,
+      image: event.seo_details?.[0]?.sharable_image_url || "",
+      title: event.seo_details?.[0]?.description || event.title,
+      description: event.sub_type || "",
+      date: event.end_date,
+      registeredUsers: event.registerCount || [],
+      maxParticipants: event.max_participants || 0,
+      registrationLink: event.seo_url,
+      organizer : event.organisation.name 
+    };
+  }
 
   // 📅 Formats date strings nicely
   const formatDate = (dateString) => {
@@ -50,11 +77,16 @@ const EventCard = ({ event }) => {
   return (
     <div className="event-card">
       <div className="event-image relative aspect-video w-full">
-        <img className=" w-full h-full"
-          src={event?.image || event.hackathon_setting?.logo || event?.logo}
+        <img
+          className=" w-full h-full"
+          src={event?.image || event?.hackathon_setting?.logo || event?.logo || "https://i.ibb.co/4gd2W4qC/Screenshot-2025-07-29-205123.png"}
           alt={event.title}
         />
-        <div className={`event-category ${getCategoryColor(event?.category || event?.type)}`}>
+        <div
+          className={`event-category ${getCategoryColor(
+            event?.category || event?.type || "Case Study"
+          )}`}
+        >
           {event?.category || event?.type}
         </div>
       </div>
