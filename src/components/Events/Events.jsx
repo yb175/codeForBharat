@@ -34,8 +34,11 @@ const Events = () => {
     src: "unstop",
     category:
     event.type?.toLowerCase() === "quizzes"
-      ? "quiz"
-      : event.type?.slice(0, -1).toLowerCase() || "",
+      ? "quiz" 
+      : 
+      event.type?.toLowerCase() === "cultural"
+      ? "cultural" : 
+      event.type?.slice(0, -1).toLowerCase() || "",
   }));
 
   const data = [...events, ...hackathons, ...unstopData];
